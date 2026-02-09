@@ -1,0 +1,3041 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Feb 08 2026 08:50:52 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="683e137a104fbdd67ecb8756" data-wf-site="681b30be07d7850c444db636" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home - UNVERSE</title>
+  <meta content="Home - UNVERSE" property="og:title">
+  <meta content="Home - UNVERSE" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/wddc-teamprovised.webflow.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.3/dist/lenis.css">
+  <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
+  <script src="https://niccolosegato.github.io/unverse-assets/scripts/fluid.min.js"></script>
+</head>
+<body class="body">
+  <div id="DDC_backgroundIntro" style="opacity:0" class="global-background"></div>
+  <div data-w-id="af4f6c70-9bf2-88ec-c542-f57cc5aa3a60" style="opacity:0" class="flusso-iniziale w-embed w-script">
+    <style>
+  .background-video > video {
+    width: auto;
+  }
+  .canvas-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #canvas {
+    filter: blur(20px);
+    z-index: 1;
+  }
+  #noise-canvas {
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.25;
+    mix-blend-mode: overlay;
+  }
+  /****** VHS *****/
+  .crt-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  .crt-screen {
+    width: 100%;
+    height: 100%;
+    /* Impostato sfondo trasparente */
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    /* L'ombra interna è stata mantenuta per un leggero effetto di vignettatura */
+    box-shadow: 
+      inset 0 0 150px rgba(255,180,80,0.15);
+  }
+  .screen-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      0deg, 
+      transparent 50%, 
+      rgba(255,220,160,0.025) 50%
+    );
+    background-size: 100% 4px;
+    animation: scanlines 0.1s linear infinite;
+  }
+  .vhs-noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.10"/></svg>');
+    animation: noise 0.15s infinite;
+  }
+  .glitch-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 153, 0, 0.7);
+    animation: glitch-line 3s infinite;
+  }
+  .vhs-distortion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,153,0,0.3) 25%,
+      transparent 50%,
+      rgba(230,120,70,0.3) 75%,
+      transparent 100%
+    );
+    animation: distortion 4s infinite;
+  }
+  .screen-flicker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,240,200,0.015);
+    animation: flicker 0.15s infinite;
+  }
+  .rgb-shift {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255,120,80,0.15) 0%,
+      transparent 33%,
+      rgba(180,160,120,0.15) 66%,
+      rgba(160,120,80,0.15) 100%
+    );
+    animation: rgb-shift 1.5s infinite;
+  }
+  .vhs-tracking {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,200,140,0.05) 2px,
+      rgba(255,200,140,0.05) 4px
+    );
+    animation: tracking 0.8s infinite;
+  }
+  @keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+  }
+  @keyframes noise {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-10%, -10%); }
+    20% { transform: translate(-15%, 10%); }
+    30% { transform: translate(10%, -15%); }
+    40% { transform: translate(-10%, 20%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(20%, 0); }
+    70% { transform: translate(0, 15%); }
+    80% { transform: translate(-20%, 0); }
+    90% { transform: translate(15%, 10%); }
+    100% { transform: translate(10%, 0); }
+  }
+  @keyframes glitch-line {
+    0% { top: 10%; opacity: 0; }
+    2% { top: 10%; opacity: 1; }
+    4% { top: 10%; opacity: 0; }
+    20% { top: 60%; opacity: 0; }
+    22% { top: 60%; opacity: 1; }
+    24% { top: 60%; opacity: 0; }
+    40% { top: 30%; opacity: 0; }
+    42% { top: 30%; opacity: 1; }
+    44% { top: 30%; opacity: 0; }
+    100% { top: 30%; opacity: 0; }
+  }
+  @keyframes distortion {
+    0% { transform: translateX(0) scaleX(1); }
+    10% { transform: translateX(-8px) scaleX(1.02); }
+    20% { transform: translateX(12px) scaleX(0.98); }
+    30% { transform: translateX(-6px) scaleX(1.01); }
+    40% { transform: translateX(15px) scaleX(0.96); }
+    50% { transform: translateX(-10px) scaleX(1.03); }
+    60% { transform: translateX(8px) scaleX(0.99); }
+    70% { transform: translateX(-12px) scaleX(1.01); }
+    80% { transform: translateX(6px) scaleX(0.97); }
+    90% { transform: translateX(-4px) scaleX(1.02); }
+    100% { transform: translateX(0) scaleX(1); }
+  }
+  @keyframes flicker {
+    0% { opacity: 1; }
+    95% { opacity: 1; }
+    96% { opacity: 0.5; }
+    97% { opacity: 1; }
+    98% { opacity: 0.8; }
+    99% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+  @keyframes rgb-shift {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-3px); }
+    20% { transform: translateX(4px); }
+    30% { transform: translateX(-2px); }
+    40% { transform: translateX(5px); }
+    50% { transform: translateX(-4px); }
+    60% { transform: translateX(3px); }
+    70% { transform: translateX(-5px); }
+    80% { transform: translateX(2px); }
+    90% { transform: translateX(-1px); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes tracking {
+    0% { transform: translateY(-3px); opacity: 0.8; }
+    25% { transform: translateY(4px); opacity: 0.5; }
+    50% { transform: translateY(-5px); opacity: 0.9; }
+    75% { transform: translateY(2px); opacity: 0.6; }
+    100% { transform: translateY(-3px); opacity: 0.8; }
+  }
+  #canvas-epilessia {
+    display: block;
+  }
+  /* Keyframe animations for ray movement */
+    @keyframes rayMove1 {
+      0% { transform: translate(-100%, -100%) rotate(0deg); opacity: 0.8; }
+      50% { transform: translate(50%, 50%) rotate(180deg); opacity: 1; }
+      100% { transform: translate(200%, 200%) rotate(360deg); opacity: 0.8; }
+    }
+    @keyframes rayMove2 {
+      0% { transform: translate(100%, -100%) rotate(0deg); opacity: 0.9; }
+      50% { transform: translate(-50%, 50%) rotate(-180deg); opacity: 0.7; }
+      100% { transform: translate(-200%, 200%) rotate(-360deg); opacity: 0.9; }
+    }
+    @keyframes rayMove3 {
+      0% { transform: translate(-50%, 150%) rotate(0deg); opacity: 0.7; }
+      50% { transform: translate(150%, -50%) rotate(180deg); opacity: 1; }
+      100% { transform: translate(-50%, 150%) rotate(360deg); opacity: 0.7; }
+    }
+    /* Base styles for the rays */
+    .ray {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255, 255, 200, 0.6) 0%, transparent 70%);
+      filter: blur(25px);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      will-change: transform, opacity;
+      z-index: 1;
+    }
+    /* Individual ray sizes, positions, and animation timings */
+    .ray:nth-child(1) {
+      width: 450px;
+      height: 450px;
+      top: -120px;
+      left: -120px;
+      animation: rayMove1 25s linear infinite alternate;
+    }
+    .ray:nth-child(2) {
+      width: 550px;
+      height: 550px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rayMove2 30s linear infinite alternate-reverse;
+    }
+    .ray:nth-child(3) {
+      width: 400px;
+      height: 400px;
+      bottom: -70px;
+      right: -70px;
+      animation: rayMove3 20s linear infinite;
+    }
+    .ray:nth-child(4) {
+      width: 650px;
+      height: 650px;
+      top: 20%;
+      left: -180px;
+      animation: rayMove1 35s linear infinite alternate-reverse;
+    }
+    .ray:nth-child(5) {
+      width: 500px;
+      height: 500px;
+      bottom: -120px;
+      left: 10%;
+      animation: rayMove2 28s linear infinite;
+    }
+    /* Little Sun Specs (Particles) */
+    @keyframes particleMove {
+      0% { 
+        transform: translate(var(--x-start), var(--y-start)) scale(var(--scale-start)); 
+        opacity: var(--opacity-start);
+      }
+      50% { 
+        transform: translate(var(--x-mid), var(--y-mid)) scale(var(--scale-mid)); 
+        opacity: var(--opacity-mid);
+      }
+      100% { 
+        transform: translate(var(--x-end), var(--y-end)) scale(var(--scale-end)); 
+        opacity: var(--opacity-end);
+      }
+    }
+    .particle {
+      position: absolute;
+      background-color: rgba(255, 220, 180, 0.9);
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: particleMove linear infinite;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      will-change: transform, opacity;
+      z-index: 2;
+    }
+	#jackal-box {
+  	margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 80%, #FFB6C1 0%, transparent 60%),
+        radial-gradient(circle at 20% 20%, #87CEEB 0%, transparent 55%),
+        radial-gradient(circle at 40% 60%, #FFC0CB 0%, transparent 50%),
+        radial-gradient(circle at 70% 40%, #B0E0E6 0%, transparent 65%),
+        radial-gradient(circle at 10% 90%, #FFE4E1 0%, transparent 45%),
+        radial-gradient(circle at 40% 30%, #87CEEB 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, #B0E0E6 0%, #FFC0CB 100%);
+      position: relative;
+    }
+  }
+</style>
+    <!--  SOLITUDINE  -->
+    <div class="crt-container">
+      <div class="crt-screen">
+        <div class="screen-content"></div>
+        <div class="vhs-noise"></div>
+        <div class="glitch-line"></div>
+        <div class="vhs-distortion"></div>
+        <div class="screen-flicker"></div>
+        <div class="rgb-shift"></div>
+        <div class="vhs-tracking"></div>
+      </div>
+    </div>
+    <!--  FLUSSO  -->
+    <div class="canvas-container">
+      <canvas id="canvas"></canvas>
+      <canvas id="noise-canvas"></canvas>
+    </div>
+    <!--  EPILESSIA  -->
+    <canvas id="canvas-epilessia"></canvas>
+    <!--  RUMORE  -->
+    <canvas id="sphere"></canvas>
+    <!--  JACKAL  -->
+    <div id="jackal-box">
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div id="particle-container"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+    <script type="module">
+  import {
+    DDC_getCurrentTimesliceDetails
+  } from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+  let currentMoodLin = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('m')) {
+    const mValue = params.get('m');
+    currentMoodLin = mValue;
+  }
+  if(currentMoodLin == 1){
+    /***** SOLITUDINE *****/
+		document.getElementsByClassName("canvas-container")[0].style.display = "none";
+		document.getElementById("canvas-epilessia").style.display = "none";
+    document.getElementById("sphere").style.display = "none";
+    document.getElementById("jackal-box").style.display = "none";
+    document.addEventListener("scroll", function() {
+    	if (window.scrollY < document.documentElement.scrollHeight / 2) {
+      	document.getElementById("sphere").style.display = "none";
+      	document.getElementsByClassName("crt-container")[0].style.display = "block";
+      }
+      else {
+      	document.getElementsByClassName("crt-container")[0].style.display = "none";
+      	document.getElementById("sphere").style.display = "block";
+      }
+    });
+      function addRandomGlitch() {
+        const glitchLine = document.querySelector('.glitch-line');
+        const randomTop = Math.random() * 100;
+        glitchLine.style.top = randomTop + '%';
+        setTimeout(() => {
+          glitchLine.style.opacity = '0';
+          setTimeout(() => {
+            glitchLine.style.opacity = '1';
+          }, 100);
+        }, Math.random() * 2000);
+      }
+      setInterval(addRandomGlitch, 3000 + Math.random() * 5000);
+      function createInterference() {
+        const screen = document.querySelector('.crt-screen');
+        screen.style.filter = 'brightness(1.4) contrast(1.2)';
+        setTimeout(() => {
+          screen.style.filter = 'brightness(1) contrast(1)';
+        }, 150);
+      }
+      setInterval(createInterference, 8000 + Math.random() * 12000);
+      let hideTimer;
+      function hideCursor() {
+        document.body.style.cursor = 'none';
+      }
+      function showCursor() {
+        document.body.style.cursor = 'default';
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(hideCursor, 3000);
+      }
+      document.addEventListener('mousemove', showCursor);
+      hideTimer = setTimeout(hideCursor, 3000);
+      window.requestAnimationFrame =
+      window.__requestAnimationFrame ||
+      window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      (function () {
+        return function (callback, element) {
+          var lastTime = element.__lastTime;
+          if (lastTime === undefined) {
+            lastTime = 0;
+          }
+          var currTime = Date.now();
+          var timeToCall = Math.max(1, 33 - (currTime - lastTime));
+          window.setTimeout(callback, timeToCall);
+          element.__lastTime = currTime + timeToCall;
+        };
+        })();
+      window.isDevice = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i
+        .test(((navigator.userAgent || navigator.vendor || window.opera)).toLowerCase()));
+      var loaded = false;
+      var init = function () {
+        if (loaded) return;
+        loaded = true;
+        var mobile = window.isDevice;
+        var koef = mobile ? 0.5 : 1;
+        var canvas = document.getElementById('sphere');
+        var ctx = canvas.getContext('2d');
+        var width = canvas.width = koef * innerWidth;
+        var height = canvas.height = koef * innerHeight;
+        var rand = Math.random;
+        ctx.fillStyle = "rgba(0,0,0,1)";
+        ctx.fillRect(0, 0, width, height);
+        var scaleAndTranslate = function (pos, sx, sy, dx, dy) {
+          return [dx + pos[0] * sx, dy + pos[1] * sy];
+        };
+        window.addEventListener('resize', function () {
+          width = canvas.width = koef * innerWidth;
+          height = canvas.height = koef * innerHeight;
+          ctx.fillStyle = "rgba(0,0,0,1)";
+          ctx.fillRect(0, 0, width, height);
+        });
+        var traceCount = mobile ? 20 : 50;
+        var pointsOrigin = [];
+        var i;
+        var randomShapePointsCount = mobile ? 200 : 500;
+        var randomShapeRadius = mobile ? 150 : 350;
+        for (i = 0; i < randomShapePointsCount; i++) {
+          var angle = rand() * Math.PI * 2;
+          var distance = rand() * randomShapeRadius;
+          var x = distance * Math.cos(angle);
+          var y = distance * Math.sin(angle);
+          pointsOrigin.push(scaleAndTranslate([x, y], 1, 1, 0, 0));
+        }
+        var currentPointsCount = pointsOrigin.length;
+        var targetPoints = [];
+        var pulse = function (kx, ky) {
+          for (i = 0; i < pointsOrigin.length; i++) {
+            targetPoints[i] = [];
+            targetPoints[i][0] = kx * pointsOrigin[i][0] + width / 2;
+            targetPoints[i][1] = ky * pointsOrigin[i][1] + height / 2;
+          }
+        };
+        var e = [];
+        for (i = 0; i < currentPointsCount; i++) {
+          var x = rand() * width;
+          var y = rand() * height;
+          e[i] = {
+            vx: 0,
+            vy: 0,
+            R: 2,
+            speed: rand() + 5,
+            q: ~~(rand() * currentPointsCount),
+            D: 2 * (i % 2) - 1,
+            force: 0.2 * rand() + 0.7,
+            f: "hsla(0, 0%," + ~~(60 * rand() + 40) + "%,.3)",
+            trace: []
+          };
+          for (var k = 0; k < traceCount; k++) e[i].trace[k] = { x: x, y: y };
+        }
+        var config = {
+          traceK: 0.4,
+          timeDelta: 0.01
+        };
+        var time = 0;
+        var loop = function () {
+          var n = -Math.cos(time);
+          pulse((1 + n) * .5, (1 + n) * .5);
+          time += ((Math.sin(time)) < 0 ? 9 : (n > 0.8) ? .2 : 1) * config.timeDelta;
+          ctx.fillStyle = "rgba(0,0,0,.1)";
+          ctx.fillRect(0, 0, width, height);
+          for (i = e.length; i--;) {
+            var u = e[i];
+            var q = targetPoints[u.q];
+            var dx = u.trace[0].x - q[0];
+            var dy = u.trace[0].y - q[1];
+            var length = Math.sqrt(dx * dx + dy * dy);
+            if (10 > length) {
+              if (0.95 < rand()) {
+                u.q = ~~(rand() * currentPointsCount);
+              } else {
+                if (0.99 < rand()) u.D *= -1;
+                u.q += u.D;
+                u.q %= currentPointsCount;
+                if (0 > u.q) u.q += currentPointsCount;
+              }
+            }
+            u.vx += -dx / length * u.speed;
+            u.vy += -dy / length * u.speed;
+            u.trace[0].x += u.vx;
+            u.trace[0].y += u.vy;
+            u.vx *= u.force;
+            u.vy *= u.force;
+            for (k = 0; k < u.trace.length - 1;) {
+              var T = u.trace[k];
+              var N = u.trace[++k];
+              N.x -= config.traceK * (N.x - T.x);
+              N.y -= config.traceK * (N.y - T.y);
+            }
+            ctx.fillStyle = u.f;
+            for (k = 0; k < u.trace.length; k++) {
+              ctx.fillRect(u.trace[k].x, u.trace[k].y, 1, 1);
+            }
+          }
+          window.requestAnimationFrame(loop, canvas);
+        };
+        loop();
+      };
+      var s = document.readyState;
+      if (s === 'complete' || s === 'loaded' || s === 'interactive') init();
+      else document.addEventListener('DOMContentLoaded', init, false);
+  }
+  else if(currentMoodLin == 2) {
+    /***** CALMA *****/
+		document.getElementsByClassName("crt-container")[0].style.display = "none";
+		document.getElementById("canvas-epilessia").style.display = "none";
+    document.getElementById("sphere").style.display = "none";
+    document.getElementById("jackal-box").style.display = "none";
+    // Canvas setup
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const noiseCanvas = document.getElementById('noise-canvas');
+    const noiseCtx = noiseCanvas.getContext('2d');
+    // Resize canvas to window
+    function resizeCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      // Set actual size in memory (scaled to account for extra pixel density)
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      noiseCanvas.width = rect.width * dpr;
+      noiseCanvas.height = rect.height * dpr;
+      // Scale the drawing context so everything will work at the higher ratio
+      ctx.scale(dpr, dpr);
+      noiseCtx.scale(dpr, dpr);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    // Generate intense noise texture
+    function generateNoise() {
+      const width = noiseCanvas.width;
+      const height = noiseCanvas.height;
+      // Check if canvas has valid dimensions
+      if (width <= 0 || height <= 0) {
+        return;
+      }
+      const imageData = noiseCtx.createImageData(width, height);
+      const data = imageData.data;
+      for (let i = 0; i < data.length; i += 4) {
+        // Generate high-contrast noise with vintage grain effect
+        const noise = Math.random();
+        const intensity = noise > 0.6 ? 255 : (noise > 0.3 ? 128 : 0);
+        const variation = (Math.random() - 0.5) * 60;
+        const finalIntensity = Math.max(0, Math.min(255, intensity + variation));
+        data[i] = finalIntensity;     // R
+        data[i + 1] = finalIntensity; // G
+        data[i + 2] = finalIntensity; // B
+        data[i + 3] = Math.random() * 120 + 60; // Alpha with stronger variation
+      }
+      noiseCtx.putImageData(imageData, 0, 0);
+    }
+    // Generate noise every few frames for animation
+    let noiseFrame = 0;
+    function updateNoise() {
+      if (noiseFrame % 4 === 0) { // Update every 4 frames for smoother performance
+        //generateNoise();
+      }
+      noiseFrame++;
+    }
+    // Math constants
+    const TAU = Math.PI * 2;
+    // Helper functions
+    function map(value, start1, stop1, start2, stop2) {
+      return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+    }
+    function cos(angle) {
+      return Math.cos(angle);
+    }
+    function floor(value) {
+      return Math.floor(value);
+    }
+    function hsl(h, s, l, a = 1) {
+      return `hsla(${h}, ${s}%, ${l}%, ${a})`;
+    }
+    // Simplex noise instance
+    let noise = new SimplexNoise();
+    function draw(e) {
+      const width = canvas.getBoundingClientRect().width;
+      const height = canvas.getBoundingClientRect().height;
+      const width_half = width / 2;
+      const height_half = height / 2;
+      // Clear canvas
+      ctx.clearRect(0, 0, width, height);
+      // Set origin to center
+      ctx.save();
+      ctx.translate(width_half, height_half);
+      let xCount = 40;
+      let yCount = 60;
+      let iXCount = 1 / (xCount - 1);
+      let iYCount = 1 / (yCount - 1);
+      let time = e * 0.00005;
+      let timeStep = 0.01;
+      // Gradient vintage con palette azzurro-celeste
+      let grad = ctx.createLinearGradient(-width, -height_half, width, height_half);
+      let t = time % 1;
+      let tSide = floor(time % 2) === 0;
+      // Palette azzurra/celeste
+      let hueA = tSide ? 200 : 190;
+      let hueB = !tSide ? 180 : 210;
+      let hueC = 195;
+      let colorA = hsl(hueA, 45, 75);
+      let colorB = hsl(hueB, 55, 65);
+      let colorC = hsl(hueC, 50, 80);
+      grad.addColorStop(0, colorC);
+      grad.addColorStop(map(t, 0, 1, 0.3, 0.1), colorA);
+      grad.addColorStop(map(t, 0, 1, 0.7, 0.4), colorB);
+      grad.addColorStop(1, colorA);
+      // Sfondo con opacità variabile
+      ctx.globalAlpha = map(cos(time * 0.5), -1, 1, 0.12, 0.25);
+      ctx.fillStyle = grad;
+      ctx.fillRect(-width_half, -height_half, width, height);
+      ctx.globalAlpha = 1;
+      // Disegna le linee del flusso
+      ctx.beginPath();
+      for(let j = 0; j < yCount; j++) {
+        let tj = j * iYCount;
+        let c = cos(tj * TAU + time) * 0.12;
+        for(let i = 0; i < xCount; i++) {
+          let t = i * iXCount;
+          let n = noise.noise3D(t, time, c);
+          let y = n * height_half * 0.8;
+          let x = t * (width + 20) - width_half - 10;
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        time += timeStep;
+      }
+      // Effetto vintage sulle linee con grana aggiuntiva
+      ctx.globalCompositeOperation = 'overlay';
+      ctx.filter = 'blur(4px) sepia(25%) saturate(120%) contrast(110%) brightness(95%)';
+      // Gradiente per le linee con palette azzurra
+      let lineGrad;
+      let currentMoodLin = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('m')) {
+        const mValue = params.get('m');
+        currentMoodLin = mValue;
+      }
+      if(currentMoodLin == 1){
+        // Calma, sfumature azzurre
+        lineGrad = ctx.createLinearGradient(-width_half, -height_half, width_half, height_half);
+        lineGrad.addColorStop(0, hsl(0, 0, 100, 0.8));
+        lineGrad.addColorStop(0.5, hsl(0, 0, 100, 0.6));
+        lineGrad.addColorStop(1, hsl(0, 0, 100, 0.7));
+      }
+      else if(currentMoodLin == 2){
+        // Calma, sfumature azzurre
+        lineGrad = ctx.createLinearGradient(-width_half, -height_half, width_half, height_half);
+        lineGrad.addColorStop(0, hsl(190, 60, 70, 0.8));
+        lineGrad.addColorStop(0.5, hsl(200, 55, 65, 0.6));
+        lineGrad.addColorStop(1, hsl(210, 65, 75, 0.7));
+      }
+      else if(currentMoodLin == 3){
+        // Calma, sfumature azzurre
+        lineGrad = ctx.createLinearGradient(-width_half, -height_half, width_half, height_half);
+        lineGrad.addColorStop(0, hsl(0, 0, 100, 0.8));
+        lineGrad.addColorStop(0.5, hsl(0, 0, 100, 0.6));
+        lineGrad.addColorStop(1, hsl(0, 0, 100, 0.7));
+      }
+      else if(currentMoodLin == 4){
+        // Focus, sfumature viola
+        lineGrad = ctx.createLinearGradient(-width_half, -height_half, width_half, height_half);
+        lineGrad.addColorStop(0, hsl(275, 80, 55, 0.9));
+        lineGrad.addColorStop(0.5, hsl(285, 85, 50, 0.8));
+        lineGrad.addColorStop(1, hsl(295, 90, 55, 0.9));
+      }
+      else {
+        lineGrad = ctx.createLinearGradient(-width_half, -height_half, width_half, height_half);
+        lineGrad.addColorStop(0, hsl(190, 60, 70, 0.8));
+        lineGrad.addColorStop(0.5, hsl(200, 55, 65, 0.6));
+        lineGrad.addColorStop(1, hsl(210, 65, 75, 0.7));
+      }
+      ctx.strokeStyle = lineGrad;
+      ctx.lineWidth = 4;
+      ctx.stroke();
+      // Linee più definite con leggero effetto grana
+      ctx.filter = 'sepia(20%) saturate(110%) contrast(105%)';
+      if(currentMoodLin == 2) {
+        ctx.strokeStyle = hsl(180, 100, 100, 1);
+      }
+      else if (currentMoodLin == 4) {
+        ctx.strokeStyle = hsl(290, 100, 65, 1);
+      }
+      ctx.lineWidth = 5;
+      ctx.stroke();
+      // Reset composite operation and filter
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.filter = 'none';
+      ctx.restore();
+      // Update noise overlay
+      //updateNoise();
+    }
+    // Animation loop
+    function animate(timestamp) {
+      draw(timestamp);
+      requestAnimationFrame(animate);
+    }
+    // Wait for DOM to be fully loaded before starting
+    window.addEventListener('load', function() {
+      // Initial noise generation after everything is loaded
+      setTimeout(() => {
+        //generateNoise();
+        requestAnimationFrame(animate);
+      }, 100);
+    });
+  }
+  else if(currentMoodLin == 3) {
+		document.getElementsByClassName("canvas-container")[0].style.display = "none";
+		document.getElementsByClassName("crt-container")[0].style.display = "none";
+		document.getElementById("canvas-epilessia").style.display = "none";
+    document.getElementById("sphere").style.display = "none";
+    /***** JACKAL *****/
+    const particleContainer = document.getElementById('particle-container');
+    const numParticles = 40;
+    for (let i = 0; i < numParticles; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      // Randomize properties for each particle
+      const size = Math.random() * 6 + 3;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      const animationDuration = Math.random() * 30 + 20;
+      const animationDelay = Math.random() * 1.5 + 0.2; // all particles appear between 0.2s and 1.7s
+      particle.style.animationDuration = `${animationDuration}s`;
+      particle.style.animationDelay = `${animationDelay}s`;
+      // Randomize start, mid, and end positions
+      const xStart = Math.random() * 120 - 10;
+      const yStart = Math.random() * 120 - 10;
+      const xMid = Math.random() * 120 - 10;
+      const yMid = Math.random() * 120 - 10;
+      const xEnd = Math.random() * 120 - 10;
+      const yEnd = Math.random() * 120 - 10;
+      particle.style.setProperty('--x-start', `${xStart}vw`);
+      particle.style.setProperty('--y-start', `${yStart}vh`);
+      particle.style.setProperty('--x-mid', `${xMid}vw`);
+      particle.style.setProperty('--y-mid', `${yMid}vh`);
+      particle.style.setProperty('--x-end', `${xEnd}vw`);
+      particle.style.setProperty('--y-end', `${yEnd}vh`);
+      // Randomize scale and opacity
+      const scaleStart = Math.random() * 0.5 + 0.5;
+      const scaleMid = Math.random() * 0.5 + 0.8;
+      const scaleEnd = Math.random() * 0.5 + 0.5;
+      const opacityStart = Math.random() * 0.4 + 0.3;
+      const opacityMid = Math.random() * 0.4 + 0.7;
+      const opacityEnd = Math.random() * 0.4 + 0.3;
+      particle.style.setProperty('--scale-start', scaleStart);
+      particle.style.setProperty('--scale-mid', scaleMid);
+      particle.style.setProperty('--scale-end', scaleEnd);
+      particle.style.setProperty('--opacity-start', opacityStart);
+      particle.style.setProperty('--opacity-mid', opacityMid);
+      particle.style.setProperty('--opacity-end', opacityEnd);
+      particleContainer.appendChild(particle);
+    }
+  }
+  else if(currentMoodLin == 4) {
+		document.getElementsByClassName("canvas-container")[0].style.display = "none";
+		document.getElementsByClassName("crt-container")[0].style.display = "none";
+    document.getElementById("sphere").style.display = "none";
+    document.getElementById("jackal-box").style.display = "none";
+    "use strict";
+const canvas = document.getElementById("canvas-epilessia");
+const ctx = canvas.getContext("2d");
+let center = [0, 0];
+let tick = 0;
+let flashes = [];
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  center = [canvas.width / 2, canvas.height / 2];
+}
+function createFlash() {
+  const maxRadius = Math.max(canvas.width, canvas.height) * 1.5;
+  flashes.push({
+    radius: 0,
+    maxRadius: maxRadius,
+    growth: Math.random() * 50 + 15,
+    opacity: 1.2, // super luminosa
+  });
+}
+function updateFlashes() {
+  flashes = flashes.filter(flash => flash.opacity > 0.5);
+  for (let flash of flashes) {
+    flash.radius += flash.growth;
+    flash.opacity *= 0.95; // svanisce più lentamente
+  }
+}
+function drawFlashes() {
+  ctx.save();
+  ctx.globalCompositeOperation = "screen";
+  ctx.filter = "blur(14px)";
+  for (let flash of flashes) {
+    const gradient = ctx.createRadialGradient(
+      center[0], center[1], flash.radius * 0.5,
+      center[0], center[1], flash.radius
+    );
+    gradient.addColorStop(0, `hsla(270, 100%, 10%, ${flash.opacity})`);
+    gradient.addColorStop(1, `hsla(270, 100%, 1%, 0)`);
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(center[0], center[1], flash.radius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.restore();
+}
+function animate() {
+  tick++;
+  // Flash ancora più frequente
+  if (tick % 2 === 0) {
+    createFlash();
+  }
+  // Sfondo più trasparente = maggiore persistenza
+  ctx.fillStyle = "rgba( 0, 0, 0.04)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  updateFlashes();
+  drawFlashes();
+  requestAnimationFrame(animate);
+}
+window.addEventListener("resize", resize);
+window.addEventListener("load", () => {
+  resize();
+  animate();
+});
+  }
+</script>
+  </div><img src="images/noise_fermo.webp" loading="lazy" sizes="(max-width: 1920px) 100vw, 1920px" srcset="images/d03fe42a239b8a88e0d830701efa6cef_noise_fermo-p-500.webp 500w, images/d03fe42a239b8a88e0d830701efa6cef_noise_fermo-p-800.webp 800w, images/d03fe42a239b8a88e0d830701efa6cef_noise_fermo-p-1080.webp 1080w, images/d03fe42a239b8a88e0d830701efa6cef_noise_fermo-p-1600.webp 1600w, images/noise_fermo.webp 1920w" alt="" class="noise_fermo">
+  <div data-w-id="7afa59c1-0a9f-81ef-07c3-ba75b92adaa4" class="main-intro">
+    <div id="main-title-container" class="div-block-3">
+      <div style="opacity:0" class="main-title">
+        <h1 id="heading-left" class="heading-left intro-color">UN</h1>
+        <h1 id="heading-center" class="heading-center intro-color">V</h1>
+        <h1 id="heading-right" class="heading-right intro-color">ERSE</h1>
+      </div>
+      <div style="opacity:0" class="variables-carousel-container">
+        <div class="variables-values-container">
+          <div style="-webkit-transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d" class="left-variables-box">
+            <p id="DDC_earth" class="asse-terrestre-value intro-color">-°</p>
+          </div>
+          <div class="vertical-divider"></div>
+          <div class="center-variables-box">
+            <p id="DDC_moonphase" class="fase-lunare-value intro-color">-</p>
+          </div>
+          <div class="vertical-divider"></div>
+          <div class="right-variables-box">
+            <p id="DDC_tidephase" class="marea-value intro-color">-</p>
+          </div>
+        </div>
+        <div class="variables-names-container">
+          <div style="-webkit-transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d" class="left-variables-box">
+            <p class="asse-terrestre-label intro-color">Terra</p>
+          </div>
+          <div class="vertical-divider vertical-intro-color"></div>
+          <div class="center-variables-box">
+            <p class="marea-label intro-color">Luna</p>
+          </div>
+          <div class="vertical-divider vertical-intro-color"></div>
+          <div class="right-variables-box">
+            <p class="fase-lunare-label intro-color">Marea</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="opacity:0" class="introduction-title">
+      <p class="main-intro-paragraph intro-color">Venerus è un universo in espansione. <br>Ogni suono, ogni parola, è un frammento del<br>suo <em>mondo interiore.</em></p>
+    </div>
+    <div class="fading-introduction-labels">
+      <div class="fading-introduction-left">
+        <div class="opaque-layer-intro opaque-layer-left"></div>
+        <p class="fading-label-left fading-label">Scorri, </p>
+      </div>
+      <div class="fading-introduction-center">
+        <div class="opaque-layer-intro opaque-layer-center"></div>
+        <p class="fading-label-center fading-label">Ascolta, </p>
+      </div>
+      <div class="fading-introduction-right">
+        <div class="opaque-layer-intro opaque-layer-right"></div>
+        <p class="fading-label-right fading-label">Immergiti</p>
+      </div>
+    </div>
+  </div>
+  <div id="main-content-scroller" style="opacity:0" class="main-content">
+    <div id="main-content" data-w-id="fee0eabe-be06-e60a-57ff-590e200a68d7" class="alberi-ripple"></div>
+    <div id="main-content-crazy" data-w-id="adec25ae-df12-cc4a-ef0d-f53b48a34c2a" class="nitida w-embed w-script">
+      <style>
+	#crazy-canvas {
+  	position: fixed;
+    width: 100vw;
+    height: 100%;
+    z-index: 1;
+    background: #000000;
+  }
+</style>
+      <canvas id="crazy-canvas"></canvas>
+      <script type="module">
+import {
+  DDC_getCurrentTimesliceDetails
+} from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+let CRAZY_moodValue = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+const CRAZY_params = new URLSearchParams(window.location.search);
+if (CRAZY_params.has('m')) {
+	const CRAZY_mValue = CRAZY_params.get('m');
+  CRAZY_moodValue = CRAZY_mValue;
+}
+if(CRAZY_moodValue == 4) {
+  const fluidCanvas = document.getElementById("crazy-canvas");
+  let myFluid = new Fluid(fluidCanvas);
+  myFluid.mapBehaviors({
+    paused: false,
+    pressure: 0.8,
+    curl: 1
+  });
+  myFluid.activate();
+}
+else {
+	document.getElementById("crazy-canvas").style.display = "none";
+}
+</script>
+    </div>
+    <div id="main-content-nitida" data-w-id="295dc9f1-bf2e-88ac-d8f4-d4fc2766fbb0" class="nitida w-embed w-script">
+      <style>
+	#nitida-box {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background: #000000;
+  }
+  #nitida-container {
+  	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    cursor: default;
+    overflow: hidden;
+  }
+  #nitida-container:hover {
+    cursor: none;
+  }
+  #blurred-image {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: blur(8px);
+  }
+  #lens {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+    /* maschera sfumata */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  #clear-image {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    max-width: 100vw !important;
+  }
+  #nitida-container:hover #lens {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
+      <div id="nitida-box">
+        <div id="nitida-container">
+          <video src="https://niccolosegato.github.io/unverse-assets/assets/images/blurvideo.mp4" autoplay="" loop="" muted="" playsinline="" id="blurred-image"></video>
+          <div id="lens">
+            <img src="https://niccolosegato.github.io/unverse-assets/assets/images/nitida.jpg" alt="Clear Image" id="clear-image">
+          </div>
+        </div>
+      </div>
+      <script type="module">
+import {
+  DDC_getCurrentTimesliceDetails
+} from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+let NITIDA_moodValue = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+const NITIDA_params = new URLSearchParams(window.location.search);
+if (NITIDA_params.has('m')) {
+	const NITIDA_mValue = NITIDA_params.get('m');
+  NITIDA_moodValue = NITIDA_mValue;
+}
+if(NITIDA_moodValue == 3) {
+	const imageContainer = document.querySelector('#nitida-container');
+  const lens = document.querySelector('#lens');
+  const clearImage = document.querySelector('#clear-image');
+  document.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const lensHalfWidth = lens.offsetWidth / 2;
+    const lensHalfHeight = lens.offsetHeight / 2;
+    let lensX = mouseX - lensHalfWidth;
+    let lensY = mouseY - lensHalfHeight;
+    // Evita che la lente esca dallo schermo
+    lensX = Math.max(0, Math.min(lensX, window.innerWidth - lens.offsetWidth));
+    lensY = Math.max(0, Math.min(lensY, window.innerHeight - lens.offsetHeight));
+    lens.style.left = `${lensX}px`;
+    lens.style.top = `${lensY}px`;
+    clearImage.style.left = `-${lensX}px`;
+    clearImage.style.top = `-${lensY}px`;
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    const imageContainer = document.getElementById('nitida-box');
+    imageContainer.style.display = 'none';
+  });
+  document.addEventListener("scroll", function() {
+    const imageContainer = document.getElementById('nitida-box');
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY >= 3750 && scrollY <= 7500) {
+      imageContainer.style.display = 'block';
+    } else {
+      imageContainer.style.display = 'none';
+    }
+  });
+  imageContainer.addEventListener('mouseenter', () => {
+    lens.style.opacity = '1';
+    lens.style.transform = 'scale(1)';
+  });
+  imageContainer.addEventListener('mouseleave', () => {
+    lens.style.opacity = '0';
+    lens.style.transform = 'scale(0)';
+  });
+}
+else {
+	document.getElementById("nitida-box").style.display = "none";
+}
+</script>
+    </div>
+    <div id="main-content-hotsmoke" data-w-id="2d110e03-56c6-00bb-3bae-e45204a995e9" class="nitida w-embed w-script">
+      <style>
+#perline-box {
+	filter: blur(1px);
+}
+</style>
+      <canvas class="animation-container" id="perline-box" style="height: 100vh; width: 100vw; position: fixed; top: 0; left: 0;"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/noisejs@2.1.0/index.min.js"></script>
+      <script type="module">
+import {
+  DDC_getCurrentTimesliceDetails
+} from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+let PERLINE_moodValue = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+const PERLINE_params = new URLSearchParams(window.location.search);
+if (PERLINE_params.has('m')) {
+  const PERLINE_mValue = PERLINE_params.get('m');
+  PERLINE_moodValue = PERLINE_mValue;
+}
+if(PERLINE_moodValue == 1) {
+  const perlineCanvas = document.querySelector('.animation-container');
+  const ctx = perlineCanvas.getContext("2d", { alpha: true });
+  const particleCount = 30000;
+  const step = 3;
+  const gridSize = 100;
+  const particleMaxAge = 300;
+  const maxDistanceSq = 150 * 150;
+  let particles = [];
+  const noise = new Noise(Math.random());
+  let frame = 0;
+  let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  document.body.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  const LUT_SIZE = 100;
+  const colorLUT = [];
+  const start = { r: 250, g: 140, b: 0, a: 0.8 };
+  const end   = { r: 128, g: 0,   b: 32, a: 0.8 };
+  for (let i = 0; i < LUT_SIZE; i++) {
+    const t = i / (LUT_SIZE - 1);
+    const r = Math.round(start.r + (end.r - start.r) * t);
+    const g = Math.round(start.g + (end.g - start.g) * t);
+    const b = Math.round(start.b + (end.b - start.b) * t);
+    const a = start.a + (end.a - start.a) * t;
+    colorLUT[i] = `rgba(${r},${g},${b},${a})`;
+  }
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = Math.random() * perlineCanvas.width;
+      this.y = Math.random() * perlineCanvas.height;
+      this.age = Math.random() * particleMaxAge;
+    }
+    update(mouseX, mouseY) {
+      const nx = this.x / gridSize;
+      const ny = this.y / gridSize;
+      let angle = (noise.perlin3(nx, ny, frame) + 1) * 2 * Math.PI;
+      this.x += step * Math.cos(angle);
+      this.y += step * Math.sin(angle);
+      const dx = mouseX - this.x;
+      const dy = mouseY - this.y;
+      const distSq = dx * dx + dy * dy;
+      if (distSq > maxDistanceSq) {
+        const near = Math.random() * 0.04;
+        this.x += near * dx;
+        this.y += near * dy;
+      }
+      if (--this.age <= 0) this.reset();
+    }
+    draw(h) {
+      let index = Math.floor((this.y / h) * (LUT_SIZE - 1));
+      index = Math.max(0, Math.min(LUT_SIZE - 1, index));
+      ctx.fillStyle = colorLUT[index];
+      ctx.fillRect(this.x, this.y, 1, 1);
+    }
+  }
+  function animate() {
+    const w = perlineCanvas.width;
+    const h = perlineCanvas.height;
+    // ⬇ Fading with transparency (no background fill)
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'source-over';
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update(mouse.x, mouse.y);
+      particles[i].draw(h);
+    }
+    frame += 0.01;
+    requestAnimationFrame(animate);
+  }
+  function render() {
+    perlineCanvas.width = window.innerWidth;
+    perlineCanvas.height = window.innerHeight;
+    if (particles.length === 0) {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+  }
+  window.addEventListener('resize', () => {
+    perlineCanvas.width = window.innerWidth;
+    perlineCanvas.height = window.innerHeight;
+  });
+  render();
+  animate();
+}
+else {
+	document.getElementById("perline-box").style.display = "none";
+}
+</script>
+    </div>
+    <div class="content-box-fixed">
+      <div id="first-title-fix" data-w-id="7a6aec41-3eb5-02b4-94dd-db4728687b12" class="div-block-8">
+        <h1 id="heading-gsap-1" class="heading-gsap-1 embossing effect-black-glass">QUI, </h1>
+        <h1 id="heading-gsap-2" class="heading-gsap-2 embossing effect-black-glass">ADESSO</h1>
+      </div>
+      <div id="heading-sub-gsap-1" class="heading-sub-gsap-1 effect-black-glass-sub">Il presente che diventa emozione</div>
+      <div data-w-id="515bf704-0239-3be9-4158-d1b982e7a2fc" class="code-embed-clouds w-embed w-script"><canvas id="sequence-canvas" style="position:fixed;
+  inset:0; width:100vw; height:100vh; z-index:1; pointer-events:none;">
+        </canvas>
+        <script type="module">
+	import {
+    DDC_dynamicAnimations,
+    DDC_getCurrentTimesliceDetails,
+    DDC_dynamicMobileAnimations
+  } from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  const DDC_A_frameCount = 120;
+  const DDC_A_canvas = document.getElementById("sequence-canvas");
+  const DDC_A_context = DDC_A_canvas.getContext("2d");
+  DDC_A_canvas.width = window.innerWidth;
+  DDC_A_canvas.height = window.innerHeight;
+  let currentMoodInstanceLoc = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('m')) {
+    const mValue = params.get('m');
+    currentMoodInstanceLoc = mValue;
+  }
+  let DDC_url = DDC_dynamicAnimations[currentMoodInstanceLoc - 1][0];
+  if(isMobileDevice()) {
+  	DDC_url = DDC_dynamicMobileAnimations[currentMoodInstanceLoc - 1][0];
+  }
+  const DDC_A_currentFrame = DDC_A_i => `${DDC_url}${DDC_A_i}.webp`;
+  const DDC_A_imageCache = {};
+  let DDC_A_currentLoadedIndex = -1;
+  function DDC_A_render(DDC_A_i) {
+    if (DDC_A_i === DDC_A_currentLoadedIndex) return;
+    DDC_A_currentLoadedIndex = DDC_A_i;
+    if (DDC_A_imageCache[DDC_A_i]) {
+      DDC_A_drawImage(DDC_A_imageCache[DDC_A_i]);
+    } else {
+      const DDC_A_img = new Image();
+      DDC_A_img.src = DDC_A_currentFrame(DDC_A_i);
+      DDC_A_img.style.objectFit = "cover";
+      DDC_A_img.onload = () => {
+        DDC_A_imageCache[DDC_A_i] = DDC_A_img;
+        DDC_A_drawImage(DDC_A_img);
+      };
+    }
+    // Precarica 2 frame successivi
+    for (let DDC_A_offset = 1; DDC_A_offset <= 2; DDC_A_offset++) {
+      const DDC_A_preloadIndex = DDC_A_i + DDC_A_offset;
+      if (DDC_A_preloadIndex < DDC_A_frameCount && !DDC_A_imageCache[DDC_A_preloadIndex]) {
+        const DDC_A_preloadImg = new Image();
+        DDC_A_preloadImg.src = DDC_A_currentFrame(DDC_A_preloadIndex);
+        DDC_A_preloadImg.onload = () => {
+          DDC_A_imageCache[DDC_A_preloadIndex] = DDC_A_preloadImg;
+        };
+      }
+    }
+  }
+  function DDC_A_drawImage(DDC_A_img) {
+    DDC_A_context.clearRect(0, 0, DDC_A_canvas.width, DDC_A_canvas.height);
+    const DDC_A_scale = Math.max(DDC_A_canvas.width / DDC_A_img.width, DDC_A_canvas.height / DDC_A_img.height);
+    const DDC_A_scaledWidth = DDC_A_img.width * DDC_A_scale;
+    const DDC_A_scaledHeight = DDC_A_img.height * DDC_A_scale;
+    const DDC_A_x = (DDC_A_canvas.width - DDC_A_scaledWidth) / 2;
+    const DDC_A_y = (DDC_A_canvas.height - DDC_A_scaledHeight) / 2;
+    DDC_A_context.drawImage(DDC_A_img, 0, 0, DDC_A_img.width, DDC_A_img.height, DDC_A_x, DDC_A_y, DDC_A_scaledWidth, DDC_A_scaledHeight);
+  }
+  const DDC_A_scrollArea = 4500;
+  // Scroll listener
+  window.addEventListener('scroll', () => {
+    const DDC_A_scrollTop = window.scrollY;
+    const DDC_A_maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+    const DDC_A_scrollFraction = DDC_A_scrollTop / DDC_A_maxScrollTop;
+    const DDC_A_progress = Math.min(DDC_A_scrollTop / DDC_A_scrollArea, 1);
+    const DDC_A_frameIndex = Math.floor(DDC_A_progress * (DDC_A_frameCount - 1));
+    requestAnimationFrame(() => DDC_A_render(DDC_A_frameIndex));
+  });
+  // Resize listener
+  window.addEventListener('resize', () => {
+    DDC_A_canvas.width = window.innerWidth;
+    DDC_A_canvas.height = window.innerHeight;
+    DDC_A_render(DDC_A_currentLoadedIndex);
+  });
+  // Mostra il primo frame
+  DDC_A_render(0);
+  document.addEventListener("DOMContentLoaded", function () {
+  	if(currentMoodInstanceLoc == 3) {
+    	document.getElementById("first-title-fix").style.zIndex = "3";
+      document.getElementById("heading-sub-gsap-1").style.zIndex = "3";
+    }
+  });
+</script>
+      </div>
+      <div class="code-embed-petaloso w-embed w-script"><canvas id="sequence-canvas-6" style="position:fixed;
+  inset:0; width:100vw; height:100vh; z-index:1; pointer-events:none;">
+        </canvas>
+        <script type="module">
+	import {
+    DDC_dynamicAnimations,
+    DDC_getCurrentTimesliceDetails,
+    DDC_dynamicMobileAnimations
+  } from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  const DDC_F_frameCount = 120;
+  const DDC_F_canvas = document.getElementById("sequence-canvas-6");
+  const DDC_F_context = DDC_F_canvas.getContext("2d");
+  DDC_F_canvas.width = window.innerWidth;
+  DDC_F_canvas.height = window.innerHeight;
+	let currentMoodInstanceLoc = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+  const params = new URLSearchParams(window.location.search);
+	if (params.has('m')) {
+    const mValue = params.get('m');
+    currentMoodInstanceLoc = mValue;
+  }
+  let DDC_F_url = DDC_dynamicAnimations[currentMoodInstanceLoc - 1][1];
+  if(isMobileDevice()) {
+  	DDC_F_url = DDC_dynamicMobileAnimations[currentMoodInstanceLoc - 1][1];
+  }
+  const DDC_F_currentFrame = DDC_F_i => `${DDC_F_url}${DDC_F_i}.webp`;
+  const DDC_F_imageCache = {};
+  let DDC_F_currentLoadedIndex = -1;
+  function DDC_F_render(DDC_F_i) {
+    if (DDC_F_i === DDC_F_currentLoadedIndex) return;
+    DDC_F_currentLoadedIndex = DDC_F_i;
+    if (DDC_F_imageCache[DDC_F_i]) {
+      DDC_F_drawImage(DDC_F_imageCache[DDC_F_i]);
+    } else {
+      const DDC_F_img = new Image();
+      DDC_F_img.src = DDC_F_currentFrame(DDC_F_i);
+      DDC_F_img.style.objectFit = "cover";
+      DDC_F_img.onload = () => {
+        DDC_F_imageCache[DDC_F_i] = DDC_F_img;
+        DDC_F_drawImage(DDC_F_img);
+      };
+    }
+    // Precarica 2 frame successivi
+    if(DDC_F_url.length > 0) {
+    for (let DDC_F_offset = 1; DDC_F_offset <= 2; DDC_F_offset++) {
+      const DDC_F_preloadIndex = DDC_F_i + DDC_F_offset;
+      if (DDC_F_preloadIndex < DDC_F_frameCount && !DDC_F_imageCache[DDC_F_preloadIndex]) {
+        const DDC_F_preloadImg = new Image();
+        DDC_F_preloadImg.src = DDC_F_currentFrame(DDC_F_preloadIndex);
+        DDC_F_preloadImg.onload = () => {
+          DDC_F_imageCache[DDC_F_preloadIndex] = DDC_F_preloadImg;
+        };
+      }
+      }
+    }
+  }
+  function DDC_F_drawImage(DDC_F_img) {
+    DDC_F_context.clearRect(0, 0, DDC_F_canvas.width, DDC_F_canvas.height);
+    const DDC_F_scale = Math.max(DDC_F_canvas.width / DDC_F_img.width, DDC_F_canvas.height / DDC_F_img.height);
+    const DDC_F_scaledWidth = DDC_F_img.width * DDC_F_scale;
+    const DDC_F_scaledHeight = DDC_F_img.height * DDC_F_scale;
+    const DDC_F_x = (DDC_F_canvas.width - DDC_F_scaledWidth) / 2;
+    const DDC_F_y = (DDC_F_canvas.height - DDC_F_scaledHeight) / 2;
+    DDC_F_context.drawImage(DDC_F_img, 0, 0, DDC_F_img.width, DDC_F_img.height, DDC_F_x, DDC_F_y, DDC_F_scaledWidth, DDC_F_scaledHeight);
+  }
+  const DDC_F_scrollArea = 3400;
+  // Scroll listener
+  window.addEventListener('scroll', () => {
+	  if(DDC_F_url.length > 0) {
+      const DDC_F_scrollTop = window.scrollY;
+      const DDC_F_maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+      const DDC_F_scrollFraction = DDC_F_scrollTop / DDC_F_maxScrollTop;
+      const DDC_F_progress = Math.min(DDC_F_scrollTop / DDC_F_scrollArea, 1);
+      const DDC_F_frameIndex = Math.floor(DDC_F_progress * (DDC_F_frameCount - 1));
+      requestAnimationFrame(() => DDC_F_render(DDC_F_frameIndex));
+    }
+  });
+  // Resize listener
+  window.addEventListener('resize', () => {
+    DDC_F_canvas.width = window.innerWidth;
+    DDC_F_canvas.height = window.innerHeight;
+    DDC_F_render(DDC_F_currentLoadedIndex);
+  });
+  // Mostra il primo frame
+  if(DDC_F_url.length > 0) {DDC_F_render(0);}
+</script>
+      </div>
+      <div data-w-id="a4a1cf44-515c-3d5f-6f1b-831927877eda" class="code-embed-flo w-embed w-script"><canvas id="sequence-canvas-7" style="position:fixed;
+  inset:0; width:100vw; height:100vh; z-index:1; pointer-events:none;">
+        </canvas>
+        <script type="module">
+	import {
+    DDC_dynamicAnimations,
+    DDC_getCurrentTimesliceDetails,
+    DDC_dynamicMobileAnimations
+  } from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  const DDC_I_frameCount = 120;
+  const DDC_I_canvas = document.getElementById("sequence-canvas-7");
+  const DDC_I_context = DDC_I_canvas.getContext("2d");
+  DDC_I_canvas.width = window.innerWidth;
+  DDC_I_canvas.height = window.innerHeight;
+	let currentMoodInstanceLoc = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('m')) {
+    const mValue = params.get('m');
+    currentMoodInstanceLoc = mValue;
+  }
+  let DDC_I_url = DDC_dynamicAnimations[currentMoodInstanceLoc - 1][2];
+  if(isMobileDevice()) {
+  	DDC_I_url = DDC_dynamicMobileAnimations[currentMoodInstanceLoc - 1][2];
+  }
+	if(DDC_I_url == 4) {
+  	document.getElementById("sequence-canvas-7").style.opacity = "0.9";
+  }
+  const DDC_I_currentFrame = DDC_I_i => `${DDC_I_url}${DDC_I_i}.webp`;
+  const DDC_I_imageCache = {};
+  let DDC_I_currentLoadedIndex = -1;
+  function DDC_I_render(DDC_I_i) {
+    if (DDC_I_i === DDC_I_currentLoadedIndex) return;
+    DDC_I_currentLoadedIndex = DDC_I_i;
+    if (DDC_I_imageCache[DDC_I_i]) {
+      DDC_I_drawImage(DDC_I_imageCache[DDC_I_i]);
+    } else {
+      const DDC_I_img = new Image();
+      DDC_I_img.src = DDC_I_currentFrame(DDC_I_i);
+      DDC_I_img.style.objectFit = "cover";
+      DDC_I_img.onload = () => {
+        DDC_I_imageCache[DDC_I_i] = DDC_I_img;
+        DDC_I_drawImage(DDC_I_img);
+      };
+    }
+    // Precarica 2 frame successivi
+    for (let DDC_I_offset = 1; DDC_I_offset <= 2; DDC_I_offset++) {
+      const DDC_I_preloadIndex = DDC_I_i + DDC_I_offset;
+      if (DDC_I_preloadIndex < DDC_I_frameCount && !DDC_I_imageCache[DDC_I_preloadIndex]) {
+        const DDC_I_preloadImg = new Image();
+        DDC_I_preloadImg.src = DDC_I_currentFrame(DDC_I_preloadIndex);
+        DDC_I_preloadImg.onload = () => {
+          DDC_I_imageCache[DDC_I_preloadIndex] = DDC_I_preloadImg;
+        };
+      }
+    }
+  }
+  function DDC_I_drawImage(DDC_I_img) {
+    DDC_I_context.clearRect(0, 0, DDC_I_canvas.width, DDC_I_canvas.height);
+    const DDC_I_scale = Math.max(DDC_I_canvas.width / DDC_I_img.width, DDC_I_canvas.height / DDC_I_img.height);
+    const DDC_I_scaledWidth = DDC_I_img.width * DDC_I_scale;
+    const DDC_I_scaledHeight = DDC_I_img.height * DDC_I_scale;
+    const DDC_I_x = (DDC_I_canvas.width - DDC_I_scaledWidth) / 2;
+    const DDC_I_y = (DDC_I_canvas.height - DDC_I_scaledHeight) / 2;
+    DDC_I_context.drawImage(DDC_I_img, 0, 0, DDC_I_img.width, DDC_I_img.height, DDC_I_x, DDC_I_y, DDC_I_scaledWidth, DDC_I_scaledHeight);
+  }
+  const DDC_I_startY = 7400;
+  const DDC_I_endY = 11100;
+  window.addEventListener('scroll', () => {
+  if(DDC_I_url.length > 0) {
+    const DDC_I_scrollTop = window.scrollY;
+    if (DDC_I_scrollTop < DDC_I_startY) {
+      //requestAnimationFrame(() => DDC_I_render(0));
+      return;
+    }
+    if (DDC_I_scrollTop > DDC_I_endY) {
+      requestAnimationFrame(() => DDC_I_render(DDC_I_frameCount - 1));
+      return;
+    }
+    const DDC_I_relativeScroll = DDC_I_scrollTop - DDC_I_startY;
+    const DDC_I_scrollRange = DDC_I_endY - DDC_I_startY;
+    const DDC_I_progress = DDC_I_relativeScroll / DDC_I_scrollRange;
+    const DDC_I_frameIndex = Math.floor(DDC_I_progress * (DDC_I_frameCount - 1));
+    requestAnimationFrame(() => DDC_I_render(DDC_I_frameIndex));
+    }
+  });
+  // Resize listener
+  window.addEventListener('resize', () => {
+    DDC_I_canvas.width = window.innerWidth;
+    DDC_I_canvas.height = window.innerHeight;
+    DDC_I_render(DDC_I_currentLoadedIndex);
+  });
+  // Mostra il primo frame
+  DDC_I_render(0);
+</script>
+      </div>
+    </div>
+    <div class="content-box-0"></div>
+    <div class="content-box-1">
+      <p id="DDC_textcontent_0" data-w-id="6b348200-6c09-3d06-1095-f0c2d977ef4a" class="content-text-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+      <p id="DDC_textcontent_1" data-w-id="6b348200-6c09-3d06-1095-f0c2d977ef50" class="content-text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    </div>
+    <div class="content-box-2">
+      <div id="dyna-con-1" data-w-id="6bf95b78-5b29-ddf1-bad3-87db48b2d3d6" class="div-block-21"></div>
+    </div>
+    <div class="content-box-2-1">
+      <p id="DDC_textcontent_2" data-w-id="69396365-6546-2eeb-f2b8-a5f2ff8c7a5f" class="content-text-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    </div>
+    <div class="content-box-3">
+      <p id="DDC_textcontent_3" class="content-text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+      <div id="dyna-con-2" data-w-id="73859ab7-b81f-a677-44b7-b49898d0c2a6" class="tapee"></div>
+    </div>
+    <div data-w-id="8975d61d-f39a-86c4-2031-0bb20dbd07b2" class="content-box-4">
+      <div class="discrete-class">
+        <h1 id="heading-gsap-3" class="singolalinea embossing effect-black-glass">VITALITÀ</h1>
+        <h1 id="heading-gsap-4" class="singolalinea-2 embossing effect-black-glass">DISCRETA</h1>
+      </div>
+      <div id="heading-sub-gsap-2" class="singolalinea-sub effect-black-glass-sub">La quiete che fa bene</div>
+    </div>
+    <div class="content-box-4-1">
+      <p id="DDC_textcontent_4" data-w-id="94abc3f1-33ad-6211-8e1a-b6ac0b26df2a" class="content-text-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+      <div id="dyna-con-3" data-w-id="94abc3f1-33ad-6211-8e1a-b6ac0b26df2d" class="polaroid1"></div>
+      <div id="dyna-con-4" data-w-id="94abc3f1-33ad-6211-8e1a-b6ac0b26df2e" class="polaroid2"></div>
+    </div>
+    <div class="content-box-5">
+      <p id="DDC_textcontent_5" data-w-id="518195f9-93f1-76bf-a61d-b9cb51d77521" class="content-text-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    </div>
+    <div data-w-id="602d2ec8-934e-26c7-6089-819ddc00b4e3" class="title">
+      <div class="div-block-9">
+        <h1 id="heading-gsap-5" class="titulo embossing effect-black-glass">TRANQUILLA</h1>
+        <h1 id="heading-gsap-6" class="tituloblur embossing effect-black-glass">ASSENZA</h1>
+      </div>
+      <div id="heading-sub-gsap-3" class="_2-energie-che-si-sfiorano effect-black-glass-sub">Il tempo, praticamente, sparisce</div>
+    </div>
+    <div class="box-video-laterale">
+      <div class="box-testi">
+        <div class="content-box-6">
+          <p id="DDC_textcontent_6" class="content-text-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+        </div>
+        <div class="content-box-7">
+          <p id="DDC_textcontent_7" class="content-text-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+        </div>
+      </div>
+      <div id="dyna-con-5" data-w-id="23396301-446f-c99f-ae75-c6cff2dfa0d2" class="video-div-2"></div>
+      <div id="dyna-con-6" data-w-id="81176b42-282c-fa34-9d73-4c6172ae0471" class="last-tape"></div>
+    </div>
+    <div class="content-box-8">
+      <p id="DDC_textcontent_8" data-w-id="a877b3da-ceef-d225-0e60-43c34625ec1c" class="content-text-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    </div>
+    <div class="letteresparse">
+      <div data-w-id="9472c5a8-c779-c75a-b0bc-df38540f7d6f" class="div-block-19">
+        <h1 id="heading-gsap-7" class="letteresparse-gsap embossing effect-black-glass">FREQUENZA</h1>
+        <h1 id="heading-gsap-8" class="letteresparse-gsap-2 embossing effect-black-glass">MINIMA</h1>
+      </div>
+      <div id="heading-sub-gsap-4" class="_2-energie-che-si-sfiorano effect-black-glass-sub">Due energie che si sfiorano senza disturbarsi</div>
+    </div>
+    <div class="content-box-9">
+      <p id="DDC_textcontent_9" data-w-id="ba2a047e-88ca-444b-f9c2-63c931d343be" class="content-text-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    </div>
+    <div class="content-box-10">
+      <p id="DDC_textcontent_10" class="content-text-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+      <div id="dyna-con-7" data-w-id="d5fd58ab-7419-bce7-684d-3fb1c5038fb6" class="polaroid3"></div>
+    </div>
+    <div class="content-box-11">
+      <p id="DDC_textcontent_11" class="content-text-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    </div>
+    <div class="video-div3">
+      <div id="dyna-con-8" data-w-id="6b4a3a95-38b3-4a4a-71db-0feb79922fd3" class="div-block-22"></div>
+    </div>
+    <div class="embossing w-embed w-script">
+      <style>
+    .effect-black-glass {
+      transition: color 0.1s linear, text-shadow 0.1s linear;
+      color: black;
+    }
+    .effect-black-glass-sub {
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+</style>
+      <script type="module">
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    function hexToRgb(hex) {
+      // Remove the '#' if it's present
+      hex = hex.startsWith('#') ? hex.slice(1) : hex;
+      // Handle shorthand hex codes (e.g., "FFF" -> "FFFFFF")
+      if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+      }
+      // Parse the R, G, B values
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+      return [r, g, b];
+    }
+    import {
+      DDC_embossingColors,
+      DDC_embossingShadows,
+      DDC_embossingStartColors,
+      DDC_getCurrentTimesliceDetails,
+      DDC_globalTextColors
+    } from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+    let currentMoodEmb = DDC_getCurrentTimesliceDetails().DDC_activeMood - 1;
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('m')) {
+      const mValue = params.get('m');
+      currentMoodEmb = mValue - 1;
+    }
+		const gsap1 = document.getElementById('heading-gsap-1');
+		const gsap2 = document.getElementById('heading-gsap-2');
+		const gsap3 = document.getElementById('heading-gsap-3');
+		const gsap4 = document.getElementById('heading-gsap-4');
+    const gsap5 = document.getElementById('heading-gsap-5');
+    const gsap6 = document.getElementById('heading-gsap-6');
+    const gsap7 = document.getElementById('heading-gsap-7');
+    const gsap8 = document.getElementById('heading-gsap-8');
+    const gsaps = [gsap1, gsap2, gsap3, gsap4, gsap5, gsap6, gsap7, gsap8];
+    // Cambio il colore del titolo in base al colore del testo del mood
+    for(let i = 0; i < gsaps.length; i++) {
+    	gsaps[i].style.color = DDC_globalTextColors[currentMoodEmb];
+    }
+    const firstBreakpoint = 300;
+  	let thirdBreakpoint = 0;
+  	let thirdStartPoint = 0;
+  	let fifthBreakpoint = 0;
+  	let fifthStartPoint = 0;
+  	let seventhBreakpoint = 0;
+  	let seventhStartPoint = 0;
+    const multiplier = isMobileDevice() ? 2 : 1;
+    function initializeBreakpoints() {
+      thirdBreakpoint = gsap3.getBoundingClientRect().top + (gsap3.offsetHeight * multiplier);
+      thirdStartPoint = thirdBreakpoint - 300;
+      fifthBreakpoint = gsap5.getBoundingClientRect().top + (gsap5.offsetHeight * multiplier);
+      fifthStartPoint = fifthBreakpoint - 300;
+      seventhBreakpoint = gsap7.getBoundingClientRect().top + (gsap7.offsetHeight * multiplier);
+      seventhStartPoint = seventhBreakpoint - 300;
+    }
+		document.getElementById("starter-button").addEventListener("click", function() {
+    	// Attendo 9 secondi per il DOM che diventi visibile
+      setTimeout(() => {
+        initializeBreakpoints();
+      }, 9300);
+    });
+    window.addEventListener('scroll', () => {
+    	//document.getElementById("scroll-progress").innerHTML = "Scroll: " + Math.floor((window.scrollY * 100) / window.innerHeight) + "% - " + Math.floor(window.scrollY);	
+      const scrollY = window.scrollY;
+      /***** Progresses *****/
+      const progressFirst = Math.min(scrollY / firstBreakpoint, 1);
+      const progressThird = scrollY <= thirdStartPoint ? 0 : 
+      											scrollY >= thirdBreakpoint ? 1 : 
+      											(scrollY - thirdStartPoint) / (thirdBreakpoint - thirdStartPoint);
+      const progressFifth = scrollY <= fifthStartPoint ? 0 : 
+      											scrollY >= fifthBreakpoint ? 1 : 
+      											(scrollY - fifthStartPoint) / (fifthBreakpoint - fifthStartPoint);
+			const progressSeventh = scrollY <= seventhStartPoint ? 0 : 
+      											scrollY >= seventhBreakpoint ? 1 : 
+      											(scrollY - seventhStartPoint) / (seventhBreakpoint - seventhStartPoint);                         
+      const startColor = hexToRgb(DDC_embossingStartColors[currentMoodEmb]);
+      let endColor = hexToRgb(DDC_embossingColors[currentMoodEmb]);
+      /***** Colors *****/
+      const currentColorFirst = startColor.map((start, i) =>
+        Math.round(start + (endColor[i] - start) * progressFirst)
+      );
+      gsap1.style.color = `rgb(${currentColorFirst.join(",")})`;
+      gsap2.style.color = `rgb(${currentColorFirst.join(",")})`;
+      const currentColorThird = startColor.map((start, i) =>
+      	Math.round(start + (endColor[i] - start) * progressThird)
+      );
+      gsap3.style.color = `rgb(${currentColorThird.join(",")})`;
+      gsap4.style.color = `rgb(${currentColorThird.join(",")})`;
+      const currentColorFifth = startColor.map((start, i) =>
+      	Math.round(start + (endColor[i] - start) * progressFifth)
+      );
+      gsap5.style.color = `rgb(${currentColorFifth.join(",")})`;
+      gsap6.style.color = `rgb(${currentColorFifth.join(",")})`;
+      const endColorConditional = currentMoodEmb == 0 ? hexToRgb("#2d2d2d") : endColor;
+      const currentColorSeventh = startColor.map((start, i) =>
+      	Math.round(start + (endColorConditional[i] - start) * progressSeventh)
+      );
+      gsap7.style.color = `rgb(${currentColorSeventh.join(",")})`;
+      gsap8.style.color = `rgb(${currentColorSeventh.join(",")})`;
+      /***** Opacità progressiva *****/
+      let darkOpacity = 0.2 * progressFirst;
+      let lightOpacity = 0.9 * progressFirst;
+      gsap1.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      gsap2.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      darkOpacity = 0.2 * progressThird;
+      lightOpacity = 0.9 * progressThird;
+      gsap3.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      gsap4.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      darkOpacity = 0.2 * progressFifth;
+      lightOpacity = 0.9 * progressFifth;
+      gsap5.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      gsap6.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      darkOpacity = 0.2 * progressSeventh;
+      lightOpacity = 0.9 * progressSeventh;
+      gsap7.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      gsap8.style.textShadow = DDC_embossingShadows[currentMoodEmb][0] + darkOpacity + DDC_embossingShadows[currentMoodEmb][1] + lightOpacity + ")";
+      const sottotitolo1 = document.getElementById('heading-sub-gsap-1');
+      const sottotitolo2 = document.getElementById('heading-sub-gsap-2');
+      const sottotitolo3 = document.getElementById('heading-sub-gsap-3');
+      const sottotitolo4 = document.getElementById('heading-sub-gsap-4');
+      sottotitolo1.style.opacity = 1 - progressFirst;
+      sottotitolo2.style.opacity = 1 - progressThird;
+      sottotitolo3.style.opacity = 1 - progressFifth;
+      sottotitolo4.style.opacity = 1 - progressSeventh;
+    });
+</script>
+    </div>
+    <div class="social">
+      <p id="DDC_textcontent_12" class="frase-finale">Ciò che hai sfiorato svanirà, ma resta come eco silenziosa.<br>Nulla permane, tutto scorre.</p>
+      <a id="social-link-block" data-w-id="8eecfc54-86e3-cce2-2544-b380401e8ff6" href="social.html" class="link-2">Condividi</a>
+      <div class="w-embed w-script">
+        <style>
+.darkbg-social:hover {
+	background-color: "white";
+  color: "black";
+}
+.lightbg-social:hover {
+	background-color: "black";
+  color: "white";
+}
+</style>
+        <script type="module">
+import {
+  DDC_getCurrentTimesliceDetails
+} from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+document.addEventListener("DOMContentLoaded", function() {
+  let currentSocialMood = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('m')) {
+    const mValue = params.get('m');
+    currentSocialMood = mValue;
+  }
+  const btnSocial = document.getElementById("social-link-block");
+  if(currentSocialMood == 1 || currentSocialMood == 4) {
+    btnSocial.style.color = "white";
+    btnSocial.style.borderColor = "white";
+    btnSocial.addEventListener('mouseenter', () => {
+    	btnSocial.style.backgroundColor = "white";
+      btnSocial.style.color = "black";
+		});
+		btnSocial.addEventListener('mouseleave', () => {
+    	btnSocial.style.backgroundColor = "transparent";
+      btnSocial.style.color = "white";
+		});
+  }
+  else {
+    btnSocial.style.color = "black";
+    btnSocial.style.borderColor = "black";
+    btnSocial.addEventListener('mouseenter', () => {
+    	btnSocial.style.backgroundColor = "black";
+      btnSocial.style.color = "white";
+		});
+		btnSocial.addEventListener('mouseleave', () => {
+    	btnSocial.style.backgroundColor = "transparent";
+      btnSocial.style.color = "black";
+		});
+  }
+});
+</script>
+      </div>
+    </div>
+  </div>
+  <section id="DDC_header" class="header-section">
+    <a href="index.html" aria-current="page" class="link-block w-inline-block w--current">
+      <div class="div-block-4">
+        <div id="header-logo-1" class="text-block">UN</div>
+        <div id="header-logo-2" class="text-block-2">V</div>
+        <div id="header-logo-3" class="text-block-3">ERSE</div>
+      </div>
+    </a>
+    <div class="icons">
+      <div data-w-id="89f9f0c6-b2f6-5885-c185-3ebd880a1d52" class="icon-box"><img src="images/terra.svg" loading="lazy" id="var-icon-header-1" alt="" class="image-3">
+        <div data-w-id="06af4b59-ec22-c002-163f-947caf6df736" class="variable-title-mini">Terra</div>
+        <div id="label-earth-header" data-w-id="89f9f0c6-b2f6-5885-c185-3ebd880a1d54" class="header-var-label">variabile</div>
+      </div>
+      <div data-w-id="89f9f0c6-b2f6-5885-c185-3ebd880a1d56" class="icon-box"><img src="images/luna.svg" loading="lazy" id="var-icon-header-2" alt="" class="image-6">
+        <div data-w-id="6cda55c9-b6fd-5395-5588-3e70827df4c8" class="variable-title-mini">Luna</div>
+        <div id="label-moon-header" data-w-id="89f9f0c6-b2f6-5885-c185-3ebd880a1d58" class="header-var-label">variabile</div>
+      </div>
+      <div data-w-id="89f9f0c6-b2f6-5885-c185-3ebd880a1d5a" class="icon-box"><img src="images/maree.svg" loading="lazy" id="var-icon-header-3" alt="" class="image-5">
+        <div data-w-id="c7e76898-53ca-9f3d-b078-3e4f0e6f46f9" class="variable-title-mini">Marea</div>
+        <div id="label-tide-header" data-w-id="b7922445-ae3a-46d6-4016-94cb40cbb076" class="header-var-label">variabile</div>
+      </div>
+    </div>
+    <div class="div-block-6">
+      <a href="about.html" class="header-link">About</a>
+      <a href="gallery.html" class="header-link">Gallery</a>
+    </div>
+    <div class="code-embed-4 w-embed w-script">
+      <script type="module">
+import {
+  DDC_globalTextColors,
+  DDC_getCurrentTimesliceDetails,
+  DDC_getLiteralMoonValue,
+  DDC_getLiteralTideValue,
+  DDC_getLiteralEarthValue
+} from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+document.addEventListener("DOMContentLoaded", function() {
+  let actualMoodH = DDC_getCurrentTimesliceDetails().DDC_activeMood - 1;
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('m')) {
+      const mValue = params.get('m');
+      actualMoodH = mValue - 1;
+  }
+  document.getElementById("header-logo-1").style.color = DDC_globalTextColors[actualMoodH];
+  document.getElementById("header-logo-2").style.color = DDC_globalTextColors[actualMoodH];
+  document.getElementById("header-logo-3").style.color = DDC_globalTextColors[actualMoodH];
+  let headerLinks = document.getElementsByClassName("header-link");
+  for(let i = 0; i < headerLinks.length; i++) {
+  	headerLinks[i].style.color = DDC_globalTextColors[actualMoodH];
+  }
+  if(DDC_globalTextColors[actualMoodH] == "#FFFFFF"){
+  	document.getElementById("var-icon-header-1").src = "https://cdn.prod.website-files.com/681b30be07d7850c444db636/6851dcf2131dc4a09e96c126_terra_bianca.svg";
+    document.getElementById("var-icon-header-2").src = "https://cdn.prod.website-files.com/681b30be07d7850c444db636/6851dcf2a1f6816dc0958fd3_luna_bianca.svg";
+    document.getElementById("var-icon-header-3").src = "https://cdn.prod.website-files.com/681b30be07d7850c444db636/6851dcf224d7de0f36518300_marea_bianca.svg";
+  }
+  document.getElementById('label-moon-header').innerText = DDC_getLiteralMoonValue();
+  document.getElementById('label-tide-header').innerText = DDC_getLiteralTideValue();
+  document.getElementById('label-earth-header').innerText = DDC_getLiteralEarthValue() + "°";
+  // Imposto i colori del testo in base al colore di sfondo del gradiente del mood
+  document.getElementById('DDC_header').style.color = DDC_globalTextColors[actualMoodH];
+});
+</script>
+    </div>
+  </section>
+  <section id="DDC_footer" class="footer-section">
+    <div id="footer-time-label" class="footer-time-label">00:22:31</div>
+    <div class="vocale">
+      <div class="code-embed-3 w-embed w-script">
+        <style>
+    #sound{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        height: 10px;
+        cursor: pointer;
+    }
+    #sound>i{
+        display: block; border-radius: .5rem;
+        width: 3px;
+        height: 10px;
+        /*background: black;*/
+        animation: anim 0.5s linear 0s infinite alternate;
+        transition: height 0.4s cubic-bezier(0.4,0,0.2,1); /* transizione fluida */
+    }
+    .stoppedSound >i {
+        animation: none !important;
+    }
+    @keyframes anim {
+        from { height: 10px; } to { height: 30px; }
+    }
+    @keyframes stopAnim {
+        from { height: 30px; } to { height: 10px; }
+    }
+</style>
+        <script type="module">
+  import { 
+      DDC_getCurrentTimesliceDetails,
+      DDC_globalTextColors
+  } from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+  let currentMoodF = DDC_getCurrentTimesliceDetails().DDC_activeMood - 1;
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('m')) {
+      const mValue = params.get('m');
+      currentMoodF = mValue - 1;
+   }
+  document.addEventListener("DOMContentLoaded",(event)=>{
+  	// Cambio il colore dell'orologio
+    if(currentMoodF == 0 || currentMoodF == 3) {
+      document.getElementById("footer-time-label").style.color = "white";
+    }
+  	for (let i = 0; i < 15; i++) {
+        let x = document.createElement("i");
+        x.style.animationDelay = i / 6 + "s";
+        document.getElementById("sound").append(x) ;
+    }
+    // JS example to randomize animation for each <i>
+    document.querySelectorAll('#sound > i').forEach(i => {
+        i.style.animationDuration = (0.3 + Math.random() * 0.4) + 's';
+        i.style.animationDelay = (Math.random() * 0.5) + 's';
+        i.style.background = DDC_globalTextColors[currentMoodF];
+    });
+    document.getElementById("sound").addEventListener("click", function() { manageAnimation(); });
+  });
+  function manageAnimation() {
+    document.getElementById("sound").classList.toggle("stoppedSound");
+  }
+</script>
+      </div>
+      <div id="sound" class="div-block-18"></div>
+    </div>
+  </section>
+  <div id="blurred-bg-area" data-w-id="bc3de11f-e2e2-2fe4-18df-2fbd43a8bb09" style="opacity:0;display:none" class="blurred">
+    <div class="blurred-sub">
+      <div id="dinamic-element" class="dinamic-element"></div>
+      <div class="dinamic-content">
+        <h1 id="dinamic-content-heading" class="dinamic-content-heading">-</h1>
+        <p id="dinamic-content-p" class="dinamic-content-p">-</p>
+        <div class="orario">
+          <div id="dinamic-content-l" class="text-block-9-copy">-</div>
+        </div>
+        <div class="div-block-30">
+          <div class="luna"><img src="images/terra.svg" loading="lazy" id="terra-blur-icon" alt="" class="image-25">
+            <div id="click-earth" class="text-block-9">-</div>
+          </div>
+          <div class="marea"><img src="images/luna.svg" loading="lazy" id="luna-blur-icon" alt="" class="image-25">
+            <div id="click-moon" class="text-block-9">-</div>
+          </div>
+          <div class="terra"><img src="images/maree.svg" loading="lazy" id="marea-blur-icon" alt="" class="image-25">
+            <div id="click-tide" class="text-block-9">-</div>
+          </div>
+        </div>
+        <a id="close-overlay" href="#" class="button-2 w-button">Continua</a>
+      </div>
+    </div>
+    <div class="w-embed w-script">
+      <script type="module">
+import {
+  DDC_getCurrentTimesliceDetails
+} from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+document.addEventListener("DOMContentLoaded", function() {
+  let currentSocialOvrl = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+  const paramsOvrl = new URLSearchParams(window.location.search);
+  if (paramsOvrl.has('m')) {
+    const mValueOverl = paramsOvrl.get('m');
+    currentSocialOvrl = mValueOverl; 
+  }
+  let starterBtnOverl = document.getElementById("close-overlay");
+  if(currentSocialOvrl == 1 || currentSocialOvrl == 4) {
+  	starterBtnOverl.style.color = "white";
+    starterBtnOverl.style.borderColor = "white";
+    starterBtnOverl.addEventListener("mouseover", function() {
+    	starterBtnOverl.style.backgroundColor = "white";
+      starterBtnOverl.style.color = "black";
+    });
+    starterBtnOverl.addEventListener("mouseleave", function() {
+    	starterBtnOverl.style.backgroundColor = "transparent";
+      starterBtnOverl.style.color = "white";
+    });
+  }
+  else {
+  	starterBtnOverl.addEventListener("mouseover", function() {
+    	starterBtnOverl.style.backgroundColor = "black";
+      starterBtnOverl.style.color = "white";
+    });
+    starterBtnOverl.addEventListener("mouseleave", function() {
+    	starterBtnOverl.style.backgroundColor = "transparent";
+      starterBtnOverl.style.color = "black";
+    });
+  }
+});
+</script>
+    </div>
+  </div>
+  <div id="starter-button" data-w-id="6201b364-38e5-1abe-a846-bb7a4e46c5bc" class="div-block-32">
+    <div class="text-block-15">Esplora</div>
+    <div class="w-embed w-script">
+      <script type="module">
+import {
+  DDC_getCurrentTimesliceDetails
+} from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+document.addEventListener("DOMContentLoaded", function() {
+  let currentSocialStart = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('m')) {
+    const mValue = params.get('m');
+    currentSocialStart = mValue; 
+  }
+  let starterBtn = document.getElementById("starter-button");
+  starterBtn.style.position = "fixed";
+  starterBtn.style.left = "calc(50% - 50px)";
+  starterBtn.style.top = "75vh";
+  if(currentSocialStart == 1 || currentSocialStart == 4) {
+  	starterBtn.style.color = "white";
+    starterBtn.style.borderColor = "white";
+    starterBtn.addEventListener("mouseover", function() {
+    	starterBtn.style.backgroundColor = "white";
+      starterBtn.style.color = "black";
+    });
+    starterBtn.addEventListener("mouseleave", function() {
+    	starterBtn.style.backgroundColor = "transparent";
+      starterBtn.style.color = "white";
+    });
+  }
+  else {
+  	starterBtn.addEventListener("mouseover", function() {
+    	starterBtn.style.backgroundColor = "black";
+      starterBtn.style.color = "white";
+    });
+    starterBtn.addEventListener("mouseleave", function() {
+    	starterBtn.style.backgroundColor = "transparent";
+      starterBtn.style.color = "black";
+    });
+  }
+});
+</script>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=681b30be07d7850c444db636" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.14.2/SplitText.min.js" type="text/javascript"></script>
+  <script type="text/javascript">gsap.registerPlugin(ScrollTrigger,SplitText);</script>
+  <style>
+  @media (max-width: 767px) {
+    .content-box-4 {
+      position: -webkit-sticky;
+    }
+  }
+.dynaclass-img {
+	cursor: pointer;
+  position: relative;
+  z-index: 3;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow: crop;
+  displaY: inline-block;
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d;
+}
+</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+  <script type="module">
+	import { 
+  	DDC_dynamicClicked,
+    DDC_introBackgrounds,
+    DDC_globalTextColors,
+    DDC_dictionaryLength,
+    DDC_dictionary,
+    DDC_dynamicTags,
+    DDC_objectsDidasH1,
+    DDC_objectsDidasP,
+    DDC_objectsLocations,
+    DDC_objectsMoodValues,
+    DDC_dynamicAudios,
+    DDC_globalBackgrounds,
+    DDC_dynamicAnimations,
+    DDC_getCurrentTimesliceDetails,
+    DDC_getLiteralMoonValue,
+    DDC_getLiteralTideValue,
+    DDC_getLiteralEarthValue,
+    DDC_updateTime,
+    DDC_dynamicContents,
+    DDC_dynamicTagsClicked,
+    DDC_backgroundAudio,
+    DDC_titles,
+    DDC_subtitles
+  } from 'https://niccolosegato.github.io/unverse-assets/scripts/export.js';
+  let DDC_GLOBAL_AUDIO;
+  let DDC_OBJECT_AUDIO;
+  let isPlaying = false;
+  let scrollProgressElement;
+	// Controlla se il browser è Safari
+	function isSafari() {
+  	return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+	}
+  /**
+   * Funzione per visualizzare il mood
+   */
+  function DDC_run() {
+      let DDC_moodValue = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('m')) {
+        const mValue = params.get('m');
+        DDC_moodValue = mValue;
+      }
+      // Imposto i valori delle variabili nella prima schermata
+        document.getElementById('DDC_moonphase').innerHTML = DDC_getLiteralMoonValue();
+        document.getElementById('DDC_tidephase').innerHTML = DDC_getLiteralTideValue();
+        document.getElementById('DDC_earth').innerHTML = DDC_getLiteralEarthValue() + "°";
+      // Imposto il colore di sfondo dell'intro
+      document.getElementsByTagName('body')[0].style.background = DDC_introBackgrounds[DDC_moodValue - 1];
+      // Imposto il colore di sfondo del sito
+      document.getElementById('DDC_backgroundIntro').style.background = DDC_globalBackgrounds[DDC_moodValue - 1];
+      if(DDC_moodValue == 1 || DDC_moodValue == 4) {
+          document.getElementsByTagName('body')[0].style.color = "white !important";
+      	  const DDC_toIterate = document.getElementsByClassName('intro-color');
+          for(let DDC_i = 0; DDC_i < DDC_toIterate.length; DDC_i++) {
+              DDC_toIterate[DDC_i].style.color = 'white';
+          }
+          const DDC_toIterateDivs = document.getElementsByClassName('vertical-intro-color');
+          for(let DDC_i = 0; DDC_i < DDC_toIterateDivs.length; DDC_i++) {
+              DDC_toIterateDivs[DDC_i].style.backgroundColor = 'white';
+          }
+      }
+      // Imposto i contenuti e i colori dei testi
+      for(let DDC_i = 0; DDC_i < DDC_dictionaryLength; DDC_i++){
+      	const DDC_currentElement = document.getElementById('DDC_textcontent_' + DDC_i);
+        DDC_currentElement.innerHTML = DDC_dictionary[DDC_moodValue - 1][DDC_i];
+        DDC_currentElement.style.color = DDC_globalTextColors[DDC_moodValue - 1];
+  		}
+  }
+  function createDynaElement(elementContainer, targetMood = 1, targetObject) {
+  	// Svuoto il contenitore
+    elementContainer.innerHTML = "";
+  	const dynamicTag = DDC_dynamicTags[targetMood][targetObject];
+    let dynamicGenerated;
+    if(dynamicTag == "img") {
+	    dynamicGenerated = document.createElement(dynamicTag);
+    	dynamicGenerated.src = DDC_dynamicContents[targetMood][targetObject];
+      dynamicGenerated.style.width = "100%";
+      dynamicGenerated.style.height = "100%";
+      dynamicGenerated.style.objectFit = "contain";
+     	dynamicGenerated.classList.add("dynaclass-img");
+      dynamicGenerated.style.pointerEvents = "auto";
+      dynamicGenerated.addEventListener("click", function(){ showBlurOverlay(targetMood, targetObject) });//console.log("TEST") });
+      dynamicGenerated.addEventListener('mousemove', (e) => {
+        const rect = dynamicGenerated.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -15;
+        const rotateY = (x - centerX) / centerX * 15;
+        dynamicGenerated.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+      dynamicGenerated.addEventListener('mouseleave', () => {
+        dynamicGenerated.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+  	  elementContainer.appendChild(dynamicGenerated);
+     }
+     else if(dynamicTag == "video") {
+	    dynamicGenerated = document.createElement(dynamicTag);
+     	let videoContent = document.createElement("source");
+      if(!isSafari()) {
+      	videoContent.src = DDC_dynamicContents[targetMood][targetObject];
+     	}
+      else {
+	      videoContent.src = DDC_dynamicContents[targetMood][targetObject];
+        videoContent.src = videoContent.src.replace(/\.webm$/, ".mp4");
+      }
+      videoContent.type = "video/mp4";
+      dynamicGenerated.style.width = "fit-content";
+      dynamicGenerated.style.maxWidth = "100%";
+      dynamicGenerated.style.height = "100%";
+      dynamicGenerated.loop = true;
+      dynamicGenerated.autoplay = true;
+      dynamicGenerated.controls = true;
+      dynamicGenerated.muted = true;
+      dynamicGenerated.style.objectFit = "contain";
+      dynamicGenerated.appendChild(videoContent);
+     	dynamicGenerated.classList.add("dynaclass-img");
+      dynamicGenerated.style.pointerEvents = "auto";
+      dynamicGenerated.addEventListener("click", function(){ showBlurOverlay(targetMood, targetObject) });
+      dynamicGenerated.addEventListener('mousemove', (e) => {
+        const rect = dynamicGenerated.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -15;
+        const rotateY = (x - centerX) / centerX * 15;
+        dynamicGenerated.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+      dynamicGenerated.addEventListener('mouseleave', () => {
+        dynamicGenerated.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+  	  elementContainer.appendChild(dynamicGenerated);
+     }
+     else if(dynamicTag == "videoaudio") {
+	    dynamicGenerated = document.createElement("video");
+     	let videoContent = document.createElement("source");
+      if(!isSafari()) {
+      	videoContent.src = DDC_dynamicContents[targetMood][targetObject];
+     	}
+      else {
+	      videoContent.src = DDC_dynamicContents[targetMood][targetObject].replace(/\.webm$/, ".mp4");
+      }
+      videoContent.type = "video/mp4";
+      dynamicGenerated.style.width = "fit-content";
+      dynamicGenerated.style.maxWidth = "100%";
+      dynamicGenerated.style.height = "100%";
+      dynamicGenerated.loop = true;
+      dynamicGenerated.autoplay = true;
+      dynamicGenerated.controls = false;
+      dynamicGenerated.muted = true;
+      dynamicGenerated.style.objectFit = "contain";
+      dynamicGenerated.appendChild(videoContent);
+      // Create the object audio
+      DDC_GLOBAL_AUDIO.muted = true;
+      isPlaying = false;
+      DDC_OBJECT_AUDIO = new Audio(DDC_dynamicAudios[targetMood][targetObject]);
+      DDC_OBJECT_AUDIO.loop = true;
+      DDC_OBJECT_AUDIO.volume = 1;
+      DDC_OBJECT_AUDIO.muted = false;
+      DDC_OBJECT_AUDIO.play();
+    	document.getElementById("sound").classList.add("stoppedSound");
+      document.getElementById("sound").style.pointerEvents = "none";
+     	dynamicGenerated.classList.add("dynaclass-img");
+      dynamicGenerated.style.pointerEvents = "auto";
+      dynamicGenerated.addEventListener("click", function(){ showBlurOverlay(targetMood, targetObject) });
+      dynamicGenerated.addEventListener('mousemove', (e) => {
+        const rect = dynamicGenerated.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -15;
+        const rotateY = (x - centerX) / centerX * 15;
+        dynamicGenerated.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+      dynamicGenerated.addEventListener('mouseleave', () => {
+        dynamicGenerated.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+  	  elementContainer.appendChild(dynamicGenerated);
+     }
+     else if(dynamicTag == "none") {
+     	// Non faccio nulla
+     }
+  }
+  /**
+   * Function to set the content when an object is clicked
+   */
+  function showBlurOverlay(targetMood = 1, targetObject) {
+  	// Imposto la corretta dimensione del contenitore
+    document.getElementById("dinamic-element").style.height = "calc(100% - 200px)";
+  	// Svuoto prima il contenitore
+    const cont = document.getElementById('dinamic-element');
+    cont.innerHTML = "";
+  	const dynamicTag = DDC_dynamicTagsClicked[targetMood][targetObject];
+  	let dynamicGenerated;
+    if(dynamicTag == "img") {
+	    dynamicGenerated = document.createElement(dynamicTag);
+    	dynamicGenerated.src = DDC_dynamicClicked[targetMood][targetObject];
+      dynamicGenerated.style.width = "100%";
+      dynamicGenerated.style.height = "100%";
+      dynamicGenerated.style.objectFit = "contain";
+     }
+     else if(dynamicTag == "video") {
+	    dynamicGenerated = document.createElement(dynamicTag);
+     	let videoContent = document.createElement("source");
+      if(!isSafari()) {
+      	videoContent.src = DDC_dynamicContents[targetMood][targetObject];
+     	}
+      else {
+	      videoContent.src = DDC_dynamicContents[targetMood][targetObject].replace(/\.webm$/, ".mp4");
+      }
+      videoContent.type = "video/mp4";
+      dynamicGenerated.style.width = "fit-content";
+      dynamicGenerated.style.maxWidth = "100%";
+      dynamicGenerated.style.height = "100%";
+      dynamicGenerated.loop = true;
+      dynamicGenerated.autoplay = true;
+      dynamicGenerated.controls = true;
+      dynamicGenerated.muted = true;
+      dynamicGenerated.style.objectFit = "contain";
+      dynamicGenerated.appendChild(videoContent);
+     }
+     else if(dynamicTag == "videoaudio") {
+	    dynamicGenerated = document.createElement("img");
+    	dynamicGenerated.src = DDC_dynamicClicked[targetMood][targetObject];
+      dynamicGenerated.style.width = "100%";
+      dynamicGenerated.style.height = "100%";
+      dynamicGenerated.style.objectFit = "contain";
+      // Create the object audio
+      DDC_GLOBAL_AUDIO.muted = true;
+      isPlaying = false;
+      DDC_OBJECT_AUDIO = new Audio(DDC_dynamicAudios[targetMood][targetObject]);
+      DDC_OBJECT_AUDIO.loop = true;
+      DDC_OBJECT_AUDIO.volume = 1;
+      DDC_OBJECT_AUDIO.muted = false;
+      DDC_OBJECT_AUDIO.play();
+    	document.getElementById("sound").classList.add("stoppedSound");
+      document.getElementById("sound").style.pointerEvents = "none";
+     }
+     dynamicGenerated.addEventListener('mousemove', (e) => {
+        const rect = dynamicGenerated.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -15;
+        const rotateY = (x - centerX) / centerX * 15;
+        dynamicGenerated.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+      dynamicGenerated.addEventListener('mouseleave', () => {
+        dynamicGenerated.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+  	cont.appendChild(dynamicGenerated);
+    document.getElementById("dinamic-content-heading").innerHTML = DDC_objectsDidasH1[targetMood][targetObject];
+    document.getElementById("dinamic-content-heading").style.color = DDC_globalTextColors[targetMood];
+    document.getElementById("dinamic-content-p").innerHTML = DDC_objectsDidasP[targetMood][targetObject];
+    document.getElementById("dinamic-content-p").style.color = DDC_globalTextColors[targetMood];
+    document.getElementById("dinamic-content-l").innerHTML = DDC_objectsLocations[targetMood][targetObject];
+    document.getElementById("dinamic-content-l").style.color = DDC_globalTextColors[targetMood];
+    document.getElementById("click-earth").innerHTML = DDC_objectsMoodValues[targetMood][targetObject][0];
+    document.getElementById("click-earth").style.color = DDC_globalTextColors[targetMood];
+    document.getElementById("click-moon").innerHTML = DDC_objectsMoodValues[targetMood][targetObject][1];
+    document.getElementById("click-moon").style.color = DDC_globalTextColors[targetMood];
+    document.getElementById("click-tide").innerHTML = DDC_objectsMoodValues[targetMood][targetObject][2];
+    document.getElementById("click-tide").style.color = DDC_globalTextColors[targetMood];
+    if(DDC_globalTextColors[targetMood] == "#FFFFFF") {
+    	document.getElementById("terra-blur-icon").src = "https://cdn.prod.website-files.com/681b30be07d7850c444db636/6851dcf2131dc4a09e96c126_terra_bianca.svg";
+      document.getElementById("luna-blur-icon").src = "https://cdn.prod.website-files.com/681b30be07d7850c444db636/6851dcf2a1f6816dc0958fd3_luna_bianca.svg";
+    	document.getElementById("marea-blur-icon").src = "https://cdn.prod.website-files.com/681b30be07d7850c444db636/6851dcf224d7de0f36518300_marea_bianca.svg";
+    }
+  }
+  /**
+   * Function to hide the blur
+   */
+  function hideBlurOverlay() {
+  	if(DDC_OBJECT_AUDIO) {
+    	// Rimuovo il vecchio audio
+    	DDC_OBJECT_AUDIO.pause();
+      DDC_OBJECT_AUDIO.currentTime = 0;
+      DDC_OBJECT_AUDIO.src = '';
+      DDC_OBJECT_AUDIO.srcObject = null;
+      DDC_OBJECT_AUDIO.load();
+      DDC_OBJECT_AUDIO = null;
+      DDC_GLOBAL_AUDIO.muted = false;
+      isPlaying = true;
+    	document.getElementById("sound").classList.remove("stoppedSound");
+      document.getElementById("sound").style.pointerEvents = "auto";
+    }
+  }
+  /**
+   * Esegue lo script
+   */
+   $(document).ready(function() {
+  	DDC_run();
+    DDC_updateTime();
+    setInterval(DDC_updateTime, 1000);
+    scrollProgressElement = document.getElementById("scroll-progress");
+    // Disabilito l'interazione con il main content
+    document.getElementById("main-content-scroller").style.display = "none";
+    // Nascondo inizialmente il paragrafo intro
+    document.querySelector('.main-intro-paragraph').style.display = "none";
+    let localInstanceCurrentMood = DDC_getCurrentTimesliceDetails().DDC_activeMood;
+    const params = new URLSearchParams(window.location.search);
+      if (params.has('m')) {
+        const mValue = params.get('m');
+        localInstanceCurrentMood = mValue;
+      }
+     if(localInstanceCurrentMood == 1) {
+	     // Malinconia
+       document.getElementById("main-content-crazy").style.display = "none";
+       document.getElementById("main-content").style.display = "none";
+       document.getElementById("main-content-nitida").style.display = "none";
+     }
+   	 else if(localInstanceCurrentMood == 2) {
+     	// Calma
+       $("#main-content").ripples({
+         resolution: 336,
+         perturbance: 0.05
+       });
+      document.getElementById("main-content-crazy").style.display = "none";
+      document.getElementById("main-content-nitida").style.display = "none";
+      document.getElementById("main-content-hotsmoke").style.display = "none";
+     }
+     else if(localInstanceCurrentMood == 3) {
+     	// Felicita
+      document.getElementById("main-content-crazy").style.display = "none";
+      document.getElementById("main-content").style.display = "none";
+      document.getElementById("main-content-hotsmoke").style.display = "none";
+     }
+     else if(localInstanceCurrentMood == 4) {
+     	// Focus
+      document.getElementById("main-content").style.display = "none";
+      document.getElementById("main-content-hotsmoke").style.display = "none";
+      document.getElementById("main-content-nitida").style.display = "none";
+     }
+     /***** CONTENT CLICK *****/
+     let blurredDiv = document.getElementById("blurred-bg-area");
+     blurredDiv.addEventListener("click", function(){ hideBlurOverlay(); });
+     /***** END CONTENT CLICK *****/
+     /***** TITLES *****/
+     // Enable title animation
+     document.querySelector('.heading-gsap-1').classList.add('active');
+     // Cambio titoli in base al mood
+     document.getElementById("heading-gsap-1").innerText = DDC_titles[localInstanceCurrentMood - 1][0][0];
+     document.getElementById("heading-gsap-2").innerText = DDC_titles[localInstanceCurrentMood - 1][0][1];
+     document.getElementById("heading-gsap-3").innerText = DDC_titles[localInstanceCurrentMood - 1][1][0];
+     document.getElementById("heading-gsap-4").innerText = DDC_titles[localInstanceCurrentMood - 1][1][1];
+     document.getElementById("heading-gsap-5").innerText = DDC_titles[localInstanceCurrentMood - 1][2][0];
+     document.getElementById("heading-gsap-6").innerText = DDC_titles[localInstanceCurrentMood - 1][2][1];
+     document.getElementById("heading-gsap-7").innerText = DDC_titles[localInstanceCurrentMood - 1][3][0];
+     document.getElementById("heading-gsap-8").innerText = DDC_titles[localInstanceCurrentMood - 1][3][1];
+     // Change color to subtitles
+     const subs = document.getElementsByClassName("effect-black-glass-sub");
+     for(let i = 0; i < subs.length; i++) {
+     	subs[i].style.color = DDC_globalTextColors[localInstanceCurrentMood - 1];
+     }
+     document.getElementById("heading-sub-gsap-1").innerText = DDC_subtitles[localInstanceCurrentMood - 1][0];
+     document.getElementById("heading-sub-gsap-2").innerText = DDC_subtitles[localInstanceCurrentMood - 1][1];
+     document.getElementById("heading-sub-gsap-3").innerText = DDC_subtitles[localInstanceCurrentMood - 1][2];
+     document.getElementById("heading-sub-gsap-4").innerText = DDC_subtitles[localInstanceCurrentMood - 1][3];
+     /***** END TITLES *****/
+     // Ritorno all'inizio dello scroll
+     setTimeout(function() {
+        $('html, body').scrollTop(0);
+     }, 300);
+     /***** BACKGROUND AUDIO *****/
+     DDC_GLOBAL_AUDIO = new Audio(DDC_backgroundAudio[localInstanceCurrentMood - 1]);
+     DDC_GLOBAL_AUDIO.loop = true;
+     DDC_GLOBAL_AUDIO.volume = 0; // Inizia da volume 0
+     DDC_GLOBAL_AUDIO.muted = false;
+     const btn = document.querySelector('#sound');
+     isPlaying = true;
+     // Variabile per tracciare se l'audio è già stato cambiato
+     let audioChanged = false;
+     // Aggiungi il listener per il cambio audio se siamo nel mood 1
+     if (localInstanceCurrentMood == 1) {
+       window.addEventListener('scroll', function() {
+         // Calcola la percentuale di scroll
+         const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+         // Se arriviamo al 50% e non abbiamo ancora cambiato l'audio
+         if (scrollPercentage >= 55 && !audioChanged) {
+           audioChanged = true;
+           // Salva il volume corrente
+           const currentVolume = DDC_GLOBAL_AUDIO.volume;
+           // Fade out dell'audio corrente
+           const fadeOutInterval = setInterval(() => {
+             if (DDC_GLOBAL_AUDIO.volume > 0.05) {
+               DDC_GLOBAL_AUDIO.volume -= 0.05;
+             } else {
+               DDC_GLOBAL_AUDIO.volume = 0;
+               clearInterval(fadeOutInterval);
+               // Cambia la sorgente audio
+               DDC_GLOBAL_AUDIO.src = DDC_backgroundAudio[4];
+               DDC_GLOBAL_AUDIO.load();
+               // Riavvia l'audio e fade in
+               DDC_GLOBAL_AUDIO.play().then(() => {
+                 const fadeInInterval = setInterval(() => {
+                   if (DDC_GLOBAL_AUDIO.volume < currentVolume - 0.05) {
+                     DDC_GLOBAL_AUDIO.volume += 0.05;
+                   } else {
+                     DDC_GLOBAL_AUDIO.volume = currentVolume;
+                     clearInterval(fadeInInterval);
+                   }
+                 }, 25);
+               });
+             }
+           }, 25);
+         }
+         // Se torniamo sotto il 50% e l'audio era già stato cambiato
+         else if (scrollPercentage < 55 && audioChanged) {
+           audioChanged = false;
+           // Salva il volume corrente
+           const currentVolume = DDC_GLOBAL_AUDIO.volume;
+           // Fade out dell'audio corrente
+           const fadeOutInterval = setInterval(() => {
+             if (DDC_GLOBAL_AUDIO.volume > 0.05) {
+               DDC_GLOBAL_AUDIO.volume -= 0.05;
+             } else {
+               DDC_GLOBAL_AUDIO.volume = 0;
+               clearInterval(fadeOutInterval);
+               // Torna al primo audio
+               DDC_GLOBAL_AUDIO.src = DDC_backgroundAudio[0];
+               DDC_GLOBAL_AUDIO.load();
+               // Riavvia l'audio e fade in
+               DDC_GLOBAL_AUDIO.play().then(() => {
+                 const fadeInInterval = setInterval(() => {
+                   if (DDC_GLOBAL_AUDIO.volume < currentVolume - 0.05) {
+                     DDC_GLOBAL_AUDIO.volume += 0.05;
+                   } else {
+                     DDC_GLOBAL_AUDIO.volume = currentVolume;
+                     clearInterval(fadeInInterval);
+                   }
+                 }, 25);
+               });
+             }
+           }, 25);
+         }
+       });
+     }
+     document.getElementById("starter-button").addEventListener("click", function() {
+      		// Mostro immediatamente il paragrafo intro e inizializzo la sua animazione
+          document.querySelector('.main-intro-paragraph').style.display = "block";
+          initializeIntroGSAP();
+          // Riattivo l'interazione di main content
+          setTimeout(function() {
+          	document.getElementById("main-content-scroller").style.display = "block";
+            // Inizializzo il resto di GSAP dopo che il contenuto è visibile
+            setTimeout(() => {
+                initializeMainGSAP();
+            }, 50);
+          }, 8000);
+          DDC_GLOBAL_AUDIO.play();
+          // Fade in di 8 secondi - inizia quando parte l'audio
+          let currentVolume = 0;
+          const targetVolume = 0.50;
+          const fadeTime = 8000; // 8 secondi
+          const steps = 100;
+          const volumeStep = targetVolume / steps;
+          const timeStep = fadeTime / steps;
+          const fadeInterval = setInterval(() => {
+              currentVolume += volumeStep;
+              if (currentVolume >= targetVolume) {
+                  currentVolume = targetVolume;
+                  clearInterval(fadeInterval);
+              }
+              DDC_GLOBAL_AUDIO.volume = currentVolume;
+          }, timeStep);
+      });
+     btn.addEventListener('click', function() {
+         if (isPlaying) {
+             DDC_GLOBAL_AUDIO.muted = true;
+             isPlaying = false;
+         } else {
+             DDC_GLOBAL_AUDIO.muted = false;
+             isPlaying = true;
+         }
+     });
+     /***** FINE AUDIO *****/
+     /***** POPOLAZIONE CONTENUTI *****/
+     // Secondo elemento
+     createDynaElement(document.getElementById("dyna-con-1"), localInstanceCurrentMood - 1, 0); 
+     createDynaElement(document.getElementById("dyna-con-2"), localInstanceCurrentMood - 1, 1); 
+     createDynaElement(document.getElementById("dyna-con-3"), localInstanceCurrentMood - 1, 2); 
+     createDynaElement(document.getElementById("dyna-con-4"), localInstanceCurrentMood - 1, 3); 
+     createDynaElement(document.getElementById("dyna-con-5"), localInstanceCurrentMood - 1, 4);
+     createDynaElement(document.getElementById("dyna-con-6"), localInstanceCurrentMood - 1, 5);
+     createDynaElement(document.getElementById("dyna-con-7"), localInstanceCurrentMood - 1, 6);
+     createDynaElement(document.getElementById("dyna-con-8"), localInstanceCurrentMood - 1, 7); 
+     /***** FINE POPOLAZIONE CONTENUTI ******/
+  }); // Chiusura document.ready
+		/**
+   * Funzione per inizializzare GSAP per il paragrafo intro immediatamente dopo il click
+   */
+  function initializeIntroGSAP() {
+    // Registra i plugin GSAP
+    gsap.registerPlugin(SplitText, ScrollTrigger);
+    const targetDiv8 = document.querySelector('.main-intro-paragraph');
+    if (targetDiv8) { 
+      document.fonts.ready.then(() => {
+        let div8 = SplitText.create(targetDiv8, { type: "words,chars, lines" });
+        div8.chars.forEach(char => {
+            char.parentNode.style.overflow = "hidden";
+            char.parentNode.style.display = "inline-block";
+        });
+        // Animazione per il paragrafo intro
+        gsap.from(div8.lines, {
+            duration: 2,
+            y: -100,
+            autoAlpha: 0,      
+            ease: "expo.out",
+            stagger: 0.1,
+            delay: 5.3
+        });
+      });
+    } else {
+        console.warn("Impossibile trovare .main-intro-paragraph per l'animazione intro.");
+    }
+  }
+  /**
+   * Funzione per inizializzare il resto di GSAP dopo gli 8 secondi
+   */
+  function initializeMainGSAP() {
+    const targetHeadingTitle1 = document.querySelector('.heading-gsap-1'); 
+    const targetHeadingTitle2 = document.querySelector('.heading-gsap-2'); 
+    const targetHeadingSub1 = document.querySelector('.heading-sub-gsap-1');
+    const targetHeadingBlur = document.querySelector('.tituloblur');
+    const targetHeadingSingleLine = document.querySelector('.discrete-class');
+    const targetHeadingSubSingleLine = document.querySelector('.singolalinea-sub');
+    const targetHeadingSparse = document.querySelector('.letteresparse-gsap');
+    const targetHeadingSparse2 = document.querySelector('.letteresparse-gsap-2');
+    const targetText1 = document.querySelector('.content-text-1');
+    const targetText2 = document.querySelector('.content-text-2');
+    const targetText3 = document.querySelector('.content-text-3');
+    const targetText4 = document.querySelector('.content-text-4');
+    const targetText5 = document.querySelector('.content-text-5');
+    const targetText6 = document.querySelector('.content-text-6');
+    const targetText7 = document.querySelector('.content-text-7');
+    const targetText8 = document.querySelector('.content-text-8');
+    const targetText9 = document.querySelector('.content-text-9');
+    const targetText10 = document.querySelector('.content-text-10');
+    const targetText11 = document.querySelector('.content-text-11');
+    const targetText12 = document.querySelector('.content-text-12');
+    const superHeading = document.querySelector('#heading-left');
+    const socialPar = document.querySelector('#DDC_textcontent_12');
+    if (targetHeadingTitle1 && targetHeadingTitle2) { 
+      document.fonts.ready.then(() => {
+        let headingTitle1 = SplitText.create(targetHeadingTitle1, { type: "words,chars" });
+        let headingTitle2 = SplitText.create(targetHeadingTitle2, { type: "words,chars" });
+        let headingSub1 = SplitText.create(targetHeadingSub1, { type: "words,chars" });
+        let headingBlur = SplitText.create(targetHeadingBlur, { type: "words, chars" });
+        let headingSingolaLinea = SplitText.create(targetHeadingSingleLine, { type: "words, chars, lines" });
+        let headingSingolaLineaSub = SplitText.create(targetHeadingSubSingleLine, { type: "words, chars, lines" });
+        let headingSparse = SplitText.create(targetHeadingSparse, { type: "words, chars" });
+        let headingSparse2 = SplitText.create(targetHeadingSparse2, { type: "words, chars" });
+        let text1 = SplitText.create(targetText1, { type: "lines, words, chars" });
+        let text2 = SplitText.create(targetText2, {type: "lines, words, chars" });
+        let text3 = SplitText.create(targetText3, {type: "lines, words, chars" });
+        let text4 = SplitText.create(targetText4, {type: "lines, words, chars" });
+        let text5 = SplitText.create(targetText5, {type: "lines, words, chars" });
+        let text6 = SplitText.create(targetText6, {type: "lines, words, chars" });
+        let text7 = SplitText.create(targetText7, {type: "lines, words, chars" });
+        let text8 = SplitText.create(targetText8, {type: "lines, words, chars" });
+        let text9 = SplitText.create(targetText9, {type: "lines, words, chars" });
+        let text10 = SplitText.create(targetText10, {type: "lines, words, chars" });
+        let text11 = SplitText.create(targetText11, {type: "lines, words, chars" });
+        let text12 = SplitText.create(targetText12, {type: "lines, words, chars" });
+        let socialTextGsap = SplitText.create(socialPar, {type: "lines, words, chars" });
+        headingTitle1.chars.forEach(char => {
+            char.parentNode.style.overflow = "hidden";
+            char.parentNode.style.display = "inline-block";
+        });
+        headingTitle2.chars.forEach(char => {
+            char.parentNode.style.overflow = "hidden";
+            char.parentNode.style.display = "inline-block";
+        });
+        // Animazioni per i titoli principali
+        gsap.from(headingTitle1.chars, {
+            delay: 1,
+            duration: 2,
+            y: -100,
+            autoAlpha: 0,      
+            ease: "expo.out",
+            stagger: 0.1,
+            delay: 2.3
+        });
+        gsap.from(headingTitle2.chars, {
+            delay: 1,
+            duration: 2,
+            y: 100,
+            autoAlpha: 0,      
+            ease: "expo.out",
+            stagger: 0.1,
+            delay: 2.3
+        });
+        gsap.from(headingSub1.words, {
+            delay: 2,
+            duration: 2,
+            x: 30,
+            autoAlpha: 0,      
+            ease: "expo.out",
+            stagger: 0.1
+        });
+        gsap.from(headingBlur.words, {
+          filter: "blur(30px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".tituloblur",
+            start: "top center",
+            end: "bottom top",
+            scrub: true,
+            markers: false
+          }
+        });
+        gsap.from(headingSparse.chars, {
+          x: 30,
+          delay: 4,
+          duration: 4,
+          autoAlpha: 0,
+          ease: "expo.out",
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".letteresparse-gsap",
+            start: "top 700px",
+            end: "bottom 200px",
+            scrub: true,
+            markers: false
+          }
+        });
+        gsap.from(headingSparse2.chars, {
+          x: 30,
+          delay: 4,
+          duration: 4,
+          autoAlpha: 0,
+          ease: "expo.out",
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".letteresparse-gsap-2",
+            start: "top 700px",
+            end: "bottom 200px",
+            scrub: true,
+            markers: false
+          }
+        });
+        gsap.from(headingSingolaLinea.words, {
+            delay: 1,
+            duration: 2,
+            y: 30,
+            autoAlpha: 0,
+            ease: "expo.out",
+            stagger: 0.5,
+            scrollTrigger: {
+                trigger: ".discrete-class", 
+                start: "top 60%",
+                end: "bottom 40%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text1.words, { autoAlpha: 0 });
+        gsap.to(text1.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-1", 
+                start: "top 90%",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.to(text1.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-1",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text2.words, { autoAlpha: 0 });
+        gsap.to(text2.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-2", 
+                start: "top 85%",
+                end: "bottom 70%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.to(text2.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-2",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text3.words, { autoAlpha: 0 });
+        gsap.to(text3.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-3", 
+                start: "top 85%",
+                end: "bottom 70%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.to(text3.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-3",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text4.words, { autoAlpha: 0 });
+        gsap.to(text4.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-4", 
+                start: "top 85%", 
+                end: "bottom 70%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text4.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-4",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text5.words, { autoAlpha: 0 });
+        gsap.to(text5.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.01,
+            scrollTrigger: {
+                trigger: ".content-text-5", 
+                start: "top 90%", 
+                end: "bottom 60%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text5.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-5",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.from(headingSingolaLineaSub.words, {
+            delay: 2,
+            duration: 2,
+            x: 30,
+            autoAlpha: 0,      
+            ease: "expo.out",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".singolalinea-sub", 
+                start: "top 60%",
+                end: "bottom 40%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text6.words, { autoAlpha: 0 });
+        gsap.to(text6.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-6", 
+                start: "top 90%", 
+                end: "bottom 60%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text6.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-6",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+       	gsap.set(text7.words, { autoAlpha: 0 });
+        gsap.to(text7.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-7", 
+                start: "top 90%", 
+                end: "bottom 70%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text7.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-7",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text8.words, { autoAlpha: 0 });
+        gsap.to(text8.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-8", 
+                start: "top 90%", 
+                end: "bottom 70%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text8.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-8",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text9.words, { autoAlpha: 0 });
+        gsap.to(text9.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-9", 
+                start: "top 90%", 
+                end: "bottom 70%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.set(text10.words, { autoAlpha: 0 });
+        gsap.to(text10.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-10", 
+                start: "top 90%", 
+                end: "bottom 70%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text10.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-10",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text11.words, { autoAlpha: 0 });
+        gsap.to(text11.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-11", 
+                start: "top 90%", 
+                end: "bottom 70%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text11.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-11",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(text12.words, { autoAlpha: 0 });
+        gsap.to(text12.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-12", 
+                start: "top 90%", 
+                end: "bottom 70%",
+                scrub: true,
+                markers: false
+            }
+        });
+        gsap.to(text12.lines, {
+            autoAlpha: 0,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".content-text-12",
+                start: "top 10%",
+                end: "top -5%",
+                scrub: true,
+                markers: false,
+            }
+        });
+        gsap.set(socialTextGsap.words, { autoAlpha: 0 });
+        gsap.to(socialTextGsap.words, {
+            autoAlpha: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: socialPar,
+                start: "top 70%", 
+                end: "bottom 50%",
+                scrub: true,
+                markers: false
+            }
+        });
+      });
+    } else {
+        console.warn("Impossibile avviare l'animazione GSAP principale.");
+    }
+  }
+  /***** RITORNO ALLA PAGINA DOPO IL CLICK DELLA FRECCIA INDIETRO *****/
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      DDC_GLOBAL_AUDIO.play();
+      DDC_GLOBAL_AUDIO.muted = false;
+      isPlaying = true;
+      document.getElementById("sound").classList.remove("stoppedSound");
+      document.getElementById("sound").style.pointerEvents = "auto";
+    }
+  });
+  const lenis = new Lenis({
+    wheelMultiplier: 0.6,
+    lerp: 0.08,
+    smoothTouch: false
+  });
+  //lenis.on('scroll', ({ scroll }) => {
+    /*const maxScroll = document.body.scrollHeight - window.innerHeight;
+    const percent = ((scroll * 100) / maxScroll).toFixed(2); // due decimali
+    scrollProgressElement.innerHTML = `Scroll: ${percent}% - ${Math.floor(scroll)}px`;*/
+  //});
+  function raf(t){ 
+    lenis.raf(t);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+  // Rispetta chi ha "Riduci animazioni"
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) lenis.destroy();
+</script>
+</body>
+</html>

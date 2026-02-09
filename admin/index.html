@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Scroll Animation Index</title>
+        <link rel="stylesheet" href="styles/index.css">
+        <script src="scripts/global.js"></script>
+        <script src="scripts/index.js"></script>
+    </head>
+    <body>
+        <h2 id="mood-over">MOOD ATTUALE</h2>
+        <h1 id="mood">-</h1>
+        <p>Terra: <strong id="earth"></strong> - Luna: <strong id="moonphase"></strong> - Marea: <strong id="tidephase"></strong></p>
+        <p id="nextchangelabel"></p>
+        <a href="planner.html" class="planner-btn">Vedi pianificazione</a>
+        <a href="calculator.html" class="planner-btn">Calcola parametri</a>
+        <script>DDC_run()</script>
+
+        <div id="white-card">
+            <h1>Animazioni</h1>
+            <p>Indice di tutte le animazioni che ci sono sul sito di Andrea Venerus</p>
+            <div id="animations-list">
+                <a class="card" href="nuvole.html">
+                    <img src="assets/images/icons8-nuvola-100.png" alt="Icona di una nuvola" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Nuvole</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="bubble.html">
+                    <img src="assets/images/icons8-bolla-96.png" alt="Icona di una bolla" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Bolla</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="flow.html">
+                    <img src="assets/images/icons8-linee-d'onda-96.png" alt="Icona di una flusso" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Flow</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="petali.html">
+                    <img src="assets/images/icons8-fiore-100-2.png" alt="Icona di un petalo" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Petali</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="piante.html">
+                    <img src="assets/images/icons8-pianta-da-vaso-96.png" alt="Icona di un petalo" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Piante</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="altalena.html">
+                    <img src="assets/images/icons8-altalena-100.png" alt="Icona di un petalo" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Altalena</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="fiori.html">
+                    <img src="assets/images/icons8-fiore-90.png" alt="Icona di un fiore" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Fiori</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="sole.html">
+                    <img src="assets/images/icons8-sole-96.png" alt="Icona di un sole" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Sole</p>
+                        <p class="an-mood">CALMA</p>
+                    </div>
+                </a>
+                <a class="card" href="tunnel.html">
+                    <img src="assets/images/icons8-sole-96.png" alt="Icona di un tunnel" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Tunnel</p>
+                        <p class="an-mood">FOCUS</p>
+                    </div>
+                </a>
+                <a class="card" href="sfera.html">
+                    <img src="assets/images/icons8-sfera-di-cristallo-magica-90.png" alt="Icona di un tunnel" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Sfera</p>
+                        <p class="an-mood">FOCUS</p>
+                    </div>
+                </a>
+                <a class="card" href="ribolle-old.html">
+                    <img src="assets/images/icons8-sorgenti-calde-96.png" alt="Icona di sorgenti calde" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Ribolle Legacy</p>
+                        <p class="an-mood">FELICITÀ</p>
+                    </div>
+                </a>
+                <a class="card" href="ribolle.html">
+                    <img src="assets/images/icons8-sorgenti-calde-96.png" alt="Icona di sorgenti calde" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Ribolle</p>
+                        <p class="an-mood">FELICITÀ</p>
+                    </div>
+                </a>
+                <a class="card" href="pappagalli.html">
+                    <img src="assets/images/icons8-parrocchetto-96.png" alt="Icona di parrocchetto" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Pappagalli</p>
+                        <p class="an-mood">FELICITÀ</p>
+                    </div>
+                </a>
+                <a class="card" href="universo.html">
+                    <img src="assets/images/icons8-universo-96.png" alt="Icona di universo" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Universo</p>
+                        <p class="an-mood">MALINCONIA</p>
+                    </div>
+                </a>
+                <a class="card" href="universo_orange.html">
+                    <img src="assets/images/icons8-universo-96.png" alt="Icona di universo" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Universo Arancione</p>
+                        <p class="an-mood">MALINCONIA</p>
+                    </div>
+                </a>
+                <a class="card" href="titanium.html">
+                    <img src="assets/images/icons8-polvere-90.png" alt="Icona di universo" style="background-color: rgb(253, 230, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Titanium</p>
+                        <p class="an-mood">MALINCONIA</p>
+                    </div>
+                </a>
+            <h1>Effetti</h1>
+            <p>Indice di tutti gli effetti che ci sono sul sito di Andrea Venerus</p>
+
+            <div>
+                <a class="card" href="ripple.html">
+                    <img src="assets/images/icons8-sfocatura-90.png" alt="Icona di una goccia" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Ripple</p>
+                        <p class="an-mood">CSS</p>
+                    </div>
+                </a>
+                <a class="card" href="crazy.html">
+                    <img src="assets/images/icons8-punto-esclamativo-64.png" alt="Icona di un punto esclamativo" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Crazy</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="strangerthings.html">
+                    <img src="assets/images/icons8-things-96.png" alt="Icona di un punto esclamativo" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Stranger Things</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="nitido.html">
+                    <img src="assets/images/icons8-ricerca-100.png" alt="Icona di una lente di ingrandimento" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Nitido</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="hotsmoke.html">
+                    <img src="assets/images/icons8-fumo-100.png" alt="Icona di una lente di ingrandimento" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Fumo caldo</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="vhs.html">
+                    <img src="assets/images/icons8-vhs-100.png" alt="Icona VHS" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">VHS</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="epilessia.html">
+                    <img src="assets/images/icons8-flash-on-100.png" alt="Icona flash" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Epilessia</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="perline.html">
+                    <img src="assets/images/icons8-palla-100.png" alt="Icona flash" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Perline</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="rumore.html">
+                    <img src="assets/images/icons8-volume-medio-96.png" alt="Icona flash" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Rumore</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="luce.html">
+                    <img src="assets/images/icons8-sole-96 (1).png" alt="Icona flash" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Luce</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="flusso.html">
+                    <img src="assets/images/icons8-fluire-100.png" alt="Icona flash" style="background-color: rgb(176, 217, 253);">
+                    <div class="an-container">
+                        <p class="an-title">Flusso</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+            </div>
+            
+            <h1>Elementi UI</h1>
+            <p>Indice di tutti gli elementi UI che ci sono sul sito di Andrea Venerus</p>
+
+            <div>
+                <a class="card" href="audio.html">
+                    <img src="assets/images/icons8-onda-audio-100.png" alt="Icona di una goccia" style="background-color: rgb(253, 176, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Player</p>
+                        <p class="an-mood">JS</p>
+                    </div>
+                </a>
+                <a class="card" href="gallery.html">
+                    <img src="assets/images/icons8-galleria-96.png" alt="Icona di una gallery" style="background-color: rgb(253, 176, 176);">
+                    <div class="an-container">
+                        <p class="an-title">Gallery</p>
+                        <p class="an-mood">HTML, JS, CSS</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
