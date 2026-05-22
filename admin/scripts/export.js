@@ -248,145 +248,145 @@ export const DDC_dynamicTagsClicked = [
 ];
 export const DDC_dynamicContents = [
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/malinconia-1.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/rock.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/lettera.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/just-that.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/lettera.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/lettera.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/solitudine-2.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/solitudine-1.webp"
+        "/unverse/admin/assets/moods/malinconia/malinconia-1.webp",
+        "/unverse/admin/assets/moods/malinconia/rock.webp",
+        "/unverse/admin/assets/moods/malinconia/lettera.webp",
+        "/unverse/admin/assets/moods/malinconia/just-that.webp",
+        "/unverse/admin/assets/moods/malinconia/lettera.webp",
+        "/unverse/admin/assets/moods/malinconia/lettera.webp",
+        "/unverse/admin/assets/moods/malinconia/solitudine-2.webp",
+        "/unverse/admin/assets/moods/malinconia/solitudine-1.webp"
     ],
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/colibri.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/rana.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/musicassetta-relaxing-water.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/tabacco.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/studio.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/slang.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/pianta.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/rospo.webm"
+        "/unverse/admin/assets/moods/calma/colibri.webm",
+        "/unverse/admin/assets/moods/calma/rana.webp",
+        "/unverse/admin/assets/moods/calma/musicassetta-relaxing-water.webp",
+        "/unverse/admin/assets/moods/calma/tabacco.webp",
+        "/unverse/admin/assets/moods/calma/studio.webm",
+        "/unverse/admin/assets/moods/calma/slang.webp",
+        "/unverse/admin/assets/moods/calma/pianta.webp",
+        "/unverse/admin/assets/moods/calma/rospo.webm"
     ],
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-1.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-2.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-3.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-4.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-5.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-6.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-7.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-8.webm"
+        "/unverse/admin/assets/moods/felicita/felicita-1.webm",
+        "/unverse/admin/assets/moods/felicita/felicita-2.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-3.webm",
+        "/unverse/admin/assets/moods/felicita/felicita-4.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-5.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-6.webm",
+        "/unverse/admin/assets/moods/felicita/felicita-7.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-8.webm"
     ],
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/technoparade.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/technodisco.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/focus.3.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/focus.2.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/focus.1.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/DSFC.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/tictictic.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/pianokey.webp"
+        "/unverse/admin/assets/moods/focus/technoparade.webm",
+        "/unverse/admin/assets/moods/focus/technodisco.webp",
+        "/unverse/admin/assets/moods/focus/focus.3.webp",
+        "/unverse/admin/assets/moods/focus/focus.2.webp",
+        "/unverse/admin/assets/moods/focus/focus.1.webp",
+        "/unverse/admin/assets/moods/focus/DSFC.webm",
+        "/unverse/admin/assets/moods/focus/tictictic.webm",
+        "/unverse/admin/assets/moods/focus/pianokey.webp"
     ]
 ];
 export const DDC_dynamicClicked = [
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/malinconia-1.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/rock.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/lettera.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/just-that-animato.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/lettera.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/lettera.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/solitudine-2.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/solitudine-1.webp"
+        "/unverse/admin/assets/moods/malinconia/malinconia-1.webp",
+        "/unverse/admin/assets/moods/malinconia/rock.webp",
+        "/unverse/admin/assets/moods/malinconia/lettera.webp",
+        "/unverse/admin/assets/moods/malinconia/just-that-animato.webp",
+        "/unverse/admin/assets/moods/malinconia/lettera.webp",
+        "/unverse/admin/assets/moods/malinconia/lettera.webp",
+        "/unverse/admin/assets/moods/malinconia/solitudine-2.webp",
+        "/unverse/admin/assets/moods/malinconia/solitudine-1.webp"
     ],
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/colibri.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/rana.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/relaxing-water-animato.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/tabacco.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/studio.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/slang-animato.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/pianta.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/rospo.webm"
+        "/unverse/admin/assets/moods/calma/colibri.webm",
+        "/unverse/admin/assets/moods/calma/rana.webp",
+        "/unverse/admin/assets/moods/calma/relaxing-water-animato.webp",
+        "/unverse/admin/assets/moods/calma/tabacco.webp",
+        "/unverse/admin/assets/moods/calma/studio.webm",
+        "/unverse/admin/assets/moods/calma/slang-animato.webp",
+        "/unverse/admin/assets/moods/calma/pianta.webp",
+        "/unverse/admin/assets/moods/calma/rospo.webm"
     ],
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-1.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-2.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-3.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-4.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-5.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-6.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-7.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/felicita/felicita-8.webm"
+        "/unverse/admin/assets/moods/felicita/felicita-1.webm",
+        "/unverse/admin/assets/moods/felicita/felicita-2.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-3.webm",
+        "/unverse/admin/assets/moods/felicita/felicita-4.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-5.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-6.webm",
+        "/unverse/admin/assets/moods/felicita/felicita-7.webp",
+        "/unverse/admin/assets/moods/felicita/felicita-8.webm"
     ],
     [
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/technoparade.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/technodisco-animato.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/focus.3.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/focus.2.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/focus.1.webp",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/DSFC.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/tictictic.webm",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/pianokey-animato.webp"
+        "/unverse/admin/assets/moods/focus/technoparade.webm",
+        "/unverse/admin/assets/moods/focus/technodisco-animato.webp",
+        "/unverse/admin/assets/moods/focus/focus.3.webp",
+        "/unverse/admin/assets/moods/focus/focus.2.webp",
+        "/unverse/admin/assets/moods/focus/focus.1.webp",
+        "/unverse/admin/assets/moods/focus/DSFC.webm",
+        "/unverse/admin/assets/moods/focus/tictictic.webm",
+        "/unverse/admin/assets/moods/focus/pianokey-animato.webp"
     ]
 ];
 export const DDC_dynamicAnimations = [
     [
-        "../assets/universo_orange/universo",
+        "/unverse/admin/assets/universo_orange/universo",
         "",
-        "../assets/titanium_scuro/sfondo"
+        "/unverse/admin/assets/titanium_scuro/sfondo"
     ],
     [
-        "../assets/nuvole-immersive/nuvole_nuove",
-        "../assets/petali/petali_",
-        "../assets/fiori/fiori_"
+        "/unverse/admin/assets/nuvole-immersive/nuvole_nuove",
+        "/unverse/admin/assets/petali/petali_",
+        "/unverse/admin/assets/fiori/fiori_"
     ],
     [
-        "../assets/ribolle/ribolle",
+        "/unverse/admin/assets/ribolle/ribolle",
         "",
-        "../assets/pappagalli/pappagalli",
+        "/unverse/admin/assets/pappagalli/pappagalli",
     ],
     [
-        "../assets/tunnel/tunneltrasparente_",
+        "/unverse/admin/assets/tunnel/tunneltrasparente_",
         "",
-        "../assets/sfera/sfera"
+        "/unverse/admin/assets/sfera/sfera"
     ]
 ];
 export const DDC_dynamicMobileAnimations = [
     [
-        "../assets/mobile/animazioni/universo/universo",
+        "/unverse/admin/assets/mobile/animazioni/universo/universo",
         "",
-        "../assets/mobile/animazioni/titanium/titanium"
+        "/unverse/admin/assets/mobile/animazioni/titanium/titanium"
     ],
     [
-        "../assets/mobile/animazioni/nuvole/nuvole",
-        "../assets/mobile/animazioni/petali/petali",
-        "../assets/mobile/animazioni/fiori/fiori"
+        "/unverse/admin/assets/mobile/animazioni/nuvole/nuvole",
+        "/unverse/admin/assets/mobile/animazioni/petali/petali",
+        "/unverse/admin/assets/mobile/animazioni/fiori/fiori"
     ],
     [
-        "../assets/mobile/animazioni/ribolle/ribolle",
+        "/unverse/admin/assets/mobile/animazioni/ribolle/ribolle",
         "",
-        "../assets/mobile/animazioni/pappagalli/pappagalli",
+        "/unverse/admin/assets/mobile/animazioni/pappagalli/pappagalli",
     ],
     [
-        "../assets/mobile/animazioni/tunnel/tunnel",
+        "/unverse/admin/assets/mobile/animazioni/tunnel/tunnel",
         "",
-        "../assets/mobile/animazioni/sfera/sfera"
+        "/unverse/admin/assets/mobile/animazioni/sfera/sfera"
     ]
 ];
 export const DDC_backgroundAudio = [
-    "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/audio/malinconia.m4a",
-    "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/audio/calma.mp3",
-    "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/audio/felicita.m4a",
-    "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/audio/focus.m4a",
-    "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/audio/solitudine.m4a"
+    "/unverse/admin/assets/audio/malinconia.m4a",
+    "/unverse/admin/assets/audio/calma.mp3",
+    "/unverse/admin/assets/audio/felicita.m4a",
+    "/unverse/admin/assets/audio/focus.m4a",
+    "/unverse/admin/assets/audio/solitudine.m4a"
 ]
 export const DDC_dynamicAudios = [
     [
         "",
         "",
         "",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/malinconia/just-that.m4a",
+        "/unverse/admin/assets/moods/malinconia/just-that.m4a",
         "",
         "",
         "",
@@ -395,23 +395,23 @@ export const DDC_dynamicAudios = [
     [
         "",
         "",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/acqua-studio.m4a",
+        "/unverse/admin/assets/moods/calma/acqua-studio.m4a",
         "",
         "",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/calma/jamaican-slang.m4a",
+        "/unverse/admin/assets/moods/calma/jamaican-slang.m4a",
         "",
         ""
     ],
     [],
     [
         "",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/techno-disco.m4a",
+        "/unverse/admin/assets/moods/focus/techno-disco.m4a",
         "",
         "",
         "",
         "",
         "",
-        "https://github.com/NiccoloSegato/unverse-assets/raw/refs/heads/main/assets/moods/focus/piano-key.m4a"
+        "/unverse/admin/assets/moods/focus/piano-key.m4a"
     ]
 ];
 export const DDC_objectsDidasH1 = [
