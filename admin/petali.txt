@@ -9,7 +9,7 @@
   DDC_F_canvas.width = window.innerWidth;
   DDC_F_canvas.height = window.innerHeight;
 
-  const DDC_F_url = "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/petali/petali_";
+  const DDC_F_url = "assets/petali/petali_";
 
   const DDC_F_currentFrame = DDC_F_i => `${DDC_F_url}${DDC_F_i}.webp`;
 

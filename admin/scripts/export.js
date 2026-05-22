@@ -332,46 +332,46 @@ export const DDC_dynamicClicked = [
 ];
 export const DDC_dynamicAnimations = [
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/universo_orange/universo",
+        "../assets/universo_orange/universo",
         "",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/titanium_scuro/sfondo"
+        "../assets/titanium_scuro/sfondo"
     ],
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/nuvole-immersive/nuvole_nuove",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/petali/petali_",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/fiori/fiori_"
+        "../assets/nuvole-immersive/nuvole_nuove",
+        "../assets/petali/petali_",
+        "../assets/fiori/fiori_"
     ],
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/ribolle/ribolle",
+        "../assets/ribolle/ribolle",
         "",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/pappagalli/pappagalli",
+        "../assets/pappagalli/pappagalli",
     ],
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/tunnel/tunneltrasparente_",
+        "../assets/tunnel/tunneltrasparente_",
         "",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/sfera/sfera"
+        "../assets/sfera/sfera"
     ]
 ];
 export const DDC_dynamicMobileAnimations = [
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/universo/universo",
+        "../assets/mobile/animazioni/universo/universo",
         "",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/titanium/titanium"
+        "../assets/mobile/animazioni/titanium/titanium"
     ],
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/nuvole/nuvole",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/petali/petali",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/fiori/fiori"
+        "../assets/mobile/animazioni/nuvole/nuvole",
+        "../assets/mobile/animazioni/petali/petali",
+        "../assets/mobile/animazioni/fiori/fiori"
     ],
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/ribolle/ribolle",
+        "../assets/mobile/animazioni/ribolle/ribolle",
         "",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/pappagalli/pappagalli",
+        "../assets/mobile/animazioni/pappagalli/pappagalli",
     ],
     [
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/tunnel/tunnel",
+        "../assets/mobile/animazioni/tunnel/tunnel",
         "",
-        "https://raw.githubusercontent.com/NiccoloSegato/unverse-assets/refs/heads/main/assets/mobile/animazioni/sfera/sfera"
+        "../assets/mobile/animazioni/sfera/sfera"
     ]
 ];
 export const DDC_backgroundAudio = [
