@@ -368,7 +368,7 @@
     <script type="module">
   import {
     DDC_getCurrentTimesliceDetails
-  } from 'admin/scripts/export.js';
+  } from './admin/scripts/export.js';
   let currentMoodLin = DDC_getCurrentTimesliceDetails().DDC_activeMood;
   const params = new URLSearchParams(window.location.search);
   if (params.has('m')) {
@@ -950,7 +950,7 @@ window.addEventListener("load", () => {
       <script type="module">
 import {
   DDC_getCurrentTimesliceDetails
-} from 'admin/scripts/export.js';
+} from './admin/scripts/export.js';
 let CRAZY_moodValue = DDC_getCurrentTimesliceDetails().DDC_activeMood;
 const CRAZY_params = new URLSearchParams(window.location.search);
 if (CRAZY_params.has('m')) {
@@ -1043,7 +1043,7 @@ else {
       <script type="module">
 import {
   DDC_getCurrentTimesliceDetails
-} from 'admin/scripts/export.js';
+} from './admin/scripts/export.js';
 let NITIDA_moodValue = DDC_getCurrentTimesliceDetails().DDC_activeMood;
 const NITIDA_params = new URLSearchParams(window.location.search);
 if (NITIDA_params.has('m')) {
@@ -1107,7 +1107,7 @@ else {
       <script type="module">
 import {
   DDC_getCurrentTimesliceDetails
-} from 'admin/scripts/export.js';
+} from './admin/scripts/export.js';
 let PERLINE_moodValue = DDC_getCurrentTimesliceDetails().DDC_activeMood;
 const PERLINE_params = new URLSearchParams(window.location.search);
 if (PERLINE_params.has('m')) {
@@ -1224,7 +1224,7 @@ else {
     DDC_dynamicAnimations,
     DDC_getCurrentTimesliceDetails,
     DDC_dynamicMobileAnimations
-  } from 'admin/scripts/export.js';
+  } from './admin/scripts/export.js';
   function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
@@ -1315,7 +1315,7 @@ else {
     DDC_dynamicAnimations,
     DDC_getCurrentTimesliceDetails,
     DDC_dynamicMobileAnimations
-  } from 'admin/scripts/export.js';
+  } from './admin/scripts/export.js';
   function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
@@ -1404,7 +1404,7 @@ else {
     DDC_dynamicAnimations,
     DDC_getCurrentTimesliceDetails,
     DDC_dynamicMobileAnimations
-  } from 'admin/scripts/export.js';
+  } from './admin/scripts/export.js';
   function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
@@ -1601,7 +1601,7 @@ else {
       DDC_embossingStartColors,
       DDC_getCurrentTimesliceDetails,
       DDC_globalTextColors
-    } from 'admin/scripts/export.js';
+    } from './admin/scripts/export.js';
     let currentMoodEmb = DDC_getCurrentTimesliceDetails().DDC_activeMood - 1;
     const params = new URLSearchParams(window.location.search);
     if (params.has('m')) {
@@ -1726,7 +1726,7 @@ else {
         <script type="module">
 import {
   DDC_getCurrentTimesliceDetails
-} from 'admin/scripts/export.js';
+} from './admin/scripts/export.js';
 document.addEventListener("DOMContentLoaded", function() {
   let currentSocialMood = DDC_getCurrentTimesliceDetails().DDC_activeMood;
   const params = new URLSearchParams(window.location.search);
@@ -1798,7 +1798,7 @@ import {
   DDC_getLiteralMoonValue,
   DDC_getLiteralTideValue,
   DDC_getLiteralEarthValue
-} from 'admin/scripts/export.js';
+} from './admin/scripts/export.js';
 document.addEventListener("DOMContentLoaded", function() {
   let actualMoodH = DDC_getCurrentTimesliceDetails().DDC_activeMood - 1;
   const params = new URLSearchParams(window.location.search);
@@ -1862,7 +1862,7 @@ document.addEventListener("DOMContentLoaded", function() {
   import { 
       DDC_getCurrentTimesliceDetails,
       DDC_globalTextColors
-  } from 'admin/scripts/export.js';
+  } from './admin/scripts/export.js';
   let currentMoodF = DDC_getCurrentTimesliceDetails().DDC_activeMood - 1;
   const params = new URLSearchParams(window.location.search);
   if (params.has('m')) {
@@ -1922,7 +1922,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <script type="module">
 import {
   DDC_getCurrentTimesliceDetails
-} from 'admin/scripts/export.js';
+} from './admin/scripts/export.js';
 document.addEventListener("DOMContentLoaded", function() {
   let currentSocialOvrl = DDC_getCurrentTimesliceDetails().DDC_activeMood;
   const paramsOvrl = new URLSearchParams(window.location.search);
@@ -1963,7 +1963,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <script type="module">
 import {
   DDC_getCurrentTimesliceDetails
-} from 'admin/scripts/export.js';
+} from './admin/scripts/export.js';
 document.addEventListener("DOMContentLoaded", function() {
   let currentSocialStart = DDC_getCurrentTimesliceDetails().DDC_activeMood;
   const params = new URLSearchParams(window.location.search);
@@ -2051,7 +2051,7 @@ document.addEventListener("DOMContentLoaded", function() {
     DDC_backgroundAudio,
     DDC_titles,
     DDC_subtitles
-  } from 'admin/scripts/export.js';
+  } from './admin/scripts/export.js';
   let DDC_GLOBAL_AUDIO;
   let DDC_OBJECT_AUDIO;
   let isPlaying = false;
